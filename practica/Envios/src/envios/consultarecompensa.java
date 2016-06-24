@@ -55,14 +55,14 @@ public class consultarecompensa extends javax.swing.JFrame {
 
             },
             new String [] {
-                "cod_recompensa", "stock", "precio_unidad", "descripcion", "tipo", "estado", "cod_iniciativa", "entregado"
+                "cod_donacion", "cod_usuario", "cod_iniciativa", "fecha", "monto", "cod_recompensa", "enviar cooperacha"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -95,35 +95,34 @@ public class consultarecompensa extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(488, 488, 488)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(662, 662, 662)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1202, Short.MAX_VALUE))
+                .addContainerGap(1313, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))))
+                .addContainerGap(531, Short.MAX_VALUE))
         );
-
-        jScrollPane2.getAccessibleContext().setAccessibleParent(jTable2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -131,39 +130,28 @@ public class consultarecompensa extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      servicio.Servicioenvios_Service service = new servicio.Servicioenvios_Service();
         servicio.Servicioenvios port = service.getServicioenviosPort();
-        java.util.List<servicio.Recompensa> rec = port.consultarRecompensa();
+        java.util.List<servicio.Donacion> rec = port.consultarDonaciones();
         DefaultTableModel modelo= (DefaultTableModel)jTable2.getModel();
         jTable2.setModel(modelo);
         for(int i=0;i<rec.size();i++){
-            Object registro[]= new Object[8];
-            servicio.Recompensa recompensa= rec.get(i);
-            registro[0]= recompensa.getCodRecompensa();
-            registro[1]= recompensa.getStock();
-            registro[2]= recompensa.getPrecioUnidad();
-            registro[3]= recompensa.getDescripcion();
-            registro[4]= recompensa.getTipo();
-            registro[5]= recompensa.getEstado();
-            registro[6]= recompensa.getCodIniciativa();
-            registro[7]= false;
+            Object registro[]= new Object[7];
+            servicio.Donacion donacion= rec.get(i);
+            registro[0]= donacion.getCodDonacion();
+            registro[1]= donacion.getCodUsuario();
+            registro[2]= donacion.getCodIniciativa();
+            registro[3]= donacion.getFecha();
+            registro[4]= donacion.getMonto();
+            registro[5]= donacion.getCodRecompensa();
+            registro[6]=false;
             modelo.addRow(registro);
+            
         }
         jButton1.setEnabled(false);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        TableModel mod= jTable2.getModel();
-        int filas= mod.getRowCount();
-        servicio.Servicioenvios_Service service = new servicio.Servicioenvios_Service();
-        servicio.Servicioenvios port = service.getServicioenviosPort();
-        for(int i=0;i<filas;i++){
-            int cod_recompensa= Integer.parseInt(mod.getValueAt(i,0).toString());
-            String entregado= mod.getValueAt(i,7).toString();
-            if(entregado=="true"){
-                port.actualizarRecompensa(cod_recompensa);
-            }
-            
-        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -205,12 +193,13 @@ public class consultarecompensa extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable2;
     private java.awt.Scrollbar scrollbar1;
     // End of variables declaration//GEN-END:variables
+
+    
 
    
 
