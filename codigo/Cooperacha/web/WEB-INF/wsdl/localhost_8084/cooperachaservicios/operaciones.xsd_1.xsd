@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://cooperacha/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://cooperacha/">
+
+<xs:element name="busquedainiciativa" type="tns:busquedainiciativa" />
+
+<xs:element name="busquedainiciativaResponse" type="tns:busquedainiciativaResponse" />
+
+<xs:element name="consultarListas" type="tns:consultarListas" />
+
+<xs:element name="consultarListasResponse" type="tns:consultarListasResponse" />
+
+<xs:element name="ingresarIniciativa" type="tns:ingresarIniciativa" />
+
+<xs:element name="ingresarIniciativaResponse" type="tns:ingresarIniciativaResponse" />
+
+<xs:element name="validarusuario" type="tns:validarusuario" />
+
+<xs:element name="validarusuarioResponse" type="tns:validarusuarioResponse" />
+
+<xs:complexType name="validarusuario">
+<xs:sequence>
+<xs:element name="nickname" type="xs:string" minOccurs="0" />
+<xs:element name="contrasena" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validarusuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="busquedainiciativa">
+<xs:sequence>
+<xs:element name="clave" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="busquedainiciativaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:iniciativa" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="iniciativa">
+<xs:sequence>
+<xs:element name="codcategoria" type="xs:int" />
+<xs:element name="codiniciativa" type="xs:int" />
+<xs:element name="codusuario" type="xs:int" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="meta" type="xs:double" />
+<xs:element name="monto" type="xs:double" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="tiempo" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingresarIniciativa">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="meta" type="xs:string" minOccurs="0" />
+<xs:element name="tiempo" type="xs:string" minOccurs="0" />
+<xs:element name="cod_categoria" type="xs:string" minOccurs="0" />
+<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingresarIniciativaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="consultarListas">
+<xs:sequence>
+<xs:element name="tabla" type="xs:string" minOccurs="0" />
+<xs:element name="campo" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultarListasResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

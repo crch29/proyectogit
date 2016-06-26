@@ -1,0 +1,101 @@
+<%-- 
+    Document   : busquedaIniciativa
+    Created on : 26/06/2016, 12:33:12 AM
+    Author     : carlosrene
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        
+        <title>BUSCAR INICIATIVA</title>
+    </head>
+       <body class="bg-success">
+                
+            <nav role="navigation" class="navbar navbar-default navbar-inverse">
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">Cooperacha</a>
+        </div>
+ 
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Inicio</a></li>
+            </ul>
+        </div>
+</nav>
+           
+           
+        
+           <form name="iniciativa" role="form">
+         <div class="text-center container">
+          <h1>BUSCAR INICIATIVA</h1> 
+          <div class="form-group">
+              
+              <table class="table table-striped table-bordered table-condensed">
+                  		<tr>
+                                    <td><h5>PALABRA CLAVE</h5></td><td><input class="form-control" type="text" name="clave"></td><td><button class="form-control btn btn-primary" type="submit" name="buscar">buscar</button></td>
+                  		</tr>
+              </table> 
+              
+              <table class="table table-striped table-bordered table-condensed">
+                  		<tr>
+                                    <td>cod_iniciativa</td><td>nombre</td><td>descripcion</td><td>tiempo</td><td>cod_categoria</td><td>cod_usuario</td><td>estado</td><td>meta</td><td>monto</td>
+                  		</tr>
+              
+              <%
+                  if((request.getParameter("clave")!=null)){
+                      String base= request.getParameter("clave");
+                      
+                    try {
+                        cooperacha.Operaciones_Service service = new cooperacha.Operaciones_Service();
+                        cooperacha.Operaciones port = service.getOperacionesPort();
+                        java.util.List<cooperacha.Iniciativa> result = port.busquedainiciativa(base);
+                        
+                        for(int i=0;i<result.size();i++){
+                            cooperacha.Iniciativa iniciativa = new cooperacha.Iniciativa();
+                            iniciativa= result.get(i);
+                            String cod_iniciativa= String.valueOf(iniciativa.getCodiniciativa());
+                            String nombre= iniciativa.getNombre();
+                            String descripcion= iniciativa.getDescripcion();
+                            String tiempo= iniciativa.getTiempo();
+                            String cod_categoria= String.valueOf(iniciativa.getCodcategoria());
+                            String cod_usuario= String.valueOf(iniciativa.getCodusuario());
+                            String estado= iniciativa.getEstado();
+                            String meta = String.valueOf(iniciativa.getMeta());
+                            String monto= String.valueOf(iniciativa.getMonto());
+              %><tr>
+                  <td><%=cod_iniciativa%></td><td><%=nombre%></td><td><%=descripcion%></td><td><%=tiempo%></td><td><%=cod_categoria%></td><td><%=cod_usuario%></td><td><%=estado%></td><td><%=meta%></td><td><%=monto%></td>
+               </tr><%
+                        }
+                    } catch (Exception ex) {
+                        // TODO handle custom exceptions here
+                    }
+                  }
+    %>
+              
+              
+              
+              
+             
+   
+
+                  
+                  
+              </table>
+
+
+   
+       </form>
+        <script src="js/jquery.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+       </body>
+</html>
