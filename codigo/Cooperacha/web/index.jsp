@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@page session="true"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -53,14 +53,23 @@
     try {
 	cooperacha.Operaciones_Service service = new cooperacha.Operaciones_Service();
 	cooperacha.Operaciones port = service.getOperacionesPort();
-	java.lang.String result = port.validarusuario(nickname, contraseña);
-	out.println("Result = "+result);
+	java.lang.String result[]= new java.lang.String[2];
+        java.util.List<String> resulta = port.validarusuario(nickname,contraseña);
+        result[0]=resulta.get(0);
+        result[1]= resulta.get(1);
+        String resultado= result[0];
+	HttpSession s= request.getSession();
+        if(resultado.equals("valido")){
+            s.setAttribute("cod_usuario", result[1]);
+            %><jsp:forward page="principal.jsp"></jsp:forward>><%
+        }
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
     }
             }
     %>
-    <%-- end web service invocation --%><hr/>
+  
+
 
         
      <script src="js/jquery.js"></script>
