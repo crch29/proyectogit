@@ -1,6 +1,6 @@
 <%-- 
-    Document   : iniciativasPublicadas
-    Created on : 26/06/2016, 03:09:45 AM
+    Document   : eliminarBorrador
+    Created on : 27/06/2016, 02:22:52 AM
     Author     : carlosrene
 --%>
 
@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         
-        <title>BUSCAR INICIATIVA</title>
+        <title>Eliminar Borrador</title>
     </head>
        <body class="bg-success">
                 
@@ -36,27 +36,28 @@
            
            
         
-           <form name="iniciativa" role="form" method="post">
+           <form name="iniciativa" role="form" action="eliminarBorrador.jsp">
          <div class="text-center container">
-          <h1>INICIATIVAS PUBLICADAS</h1> 
+          <h1>INICIATIVAS PUBLICADAS POR TU USUARIO</h1> 
           <div class="form-group">
               
             
               
               <table class="table table-striped table-bordered table-condensed">
                   		<tr>
-                                    <td>nombre</td><td>meta</td><td>monto alcanzado</td><td>mostrar</td>
+                                    <td>nombre</td><td>meta</td><td>monto alcanzado</td><td>accion</td>
                   		</tr>
               
               <%
                         HttpSession s= request.getSession();
+                        String usuario=(String)s.getAttribute("cod_usuario");
                         
                       java.util.ArrayList<String> codigos= new java.util.ArrayList<String>();
                     try {
                         cooperacha.Operaciones_Service service = new cooperacha.Operaciones_Service();
                         cooperacha.Operaciones port = service.getOperacionesPort();
-                        // TODO process result here
-                        java.util.List<cooperacha.Iniciativa> result = port.consultaIniciativasPublicadas();
+                        
+                        java.util.List<cooperacha.Iniciativa> result = port.consultareliminarborrador(usuario);
                         for(int i=0;i<result.size();i++){
                             cooperacha.Iniciativa iniciativa = new cooperacha.Iniciativa();
                             iniciativa= result.get(i);
@@ -73,14 +74,14 @@
                             
               %><tr>
                  
-                  <td><%=nombre%></td><td><%=meta%></td><td><%=monto%></td><td><button class="form-control btn btn-primary" type="submit" value="<%=cod_iniciativa%>" name="<%=cod_iniciativa%>">ver</button></td>
+                  <td><%=nombre%></td><td><%=meta%></td><td><%=monto%></td><td><button class="form-control btn btn-primary" type="submit" value="<%=cod_iniciativa%>" name="<%=cod_iniciativa%>">Borrar</button></td>
                </tr><%
                         String clave=request.getParameter(String.valueOf(cod_iniciativa));
                         if(clave!=null){
                             s.setAttribute("codigo",clave);
                             String uno=(String)s.getAttribute("codigo");
+                            port.eliminarIniciativaborrador(uno);
                             
-                            %><jsp:forward page="mostrarIniciativa.jsp"></jsp:forward><%
                         }
                         
                         }
@@ -101,6 +102,8 @@
                   
                   
               </table>
+          </div>
+         </div>
 
          
        </form>
