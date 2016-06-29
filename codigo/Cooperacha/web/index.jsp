@@ -14,9 +14,10 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <title>INICIO</title>
     </head>
-    <body class="bg-success">
+    <body background="startup-1.jpg">
         <br><br><br>
         
+        <div class="container center-block">
         <div class="panel panel-default center-block">
             <div class="panel-heading">
                 <h3 class="panel-title">LOGIN</h3>
@@ -32,12 +33,13 @@
                         <input type="password" method="post" class="form-control" placeholder="contraseña" name="contraseña">
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn-primary">ingresar</button>
-                        <a href="administrador/estudiante.jsp"/><button type="button" class="btn-primary">registrarse</button>
+                        <button type="submit" class="btn btn-primary">ingresar</button>
+                        <button type="button" class="btn btn-primary" onclick="location='crearUsuario.jsp'">registrarse</button>
                     </div>
                 </form>
             </div>
             
+        </div>
         </div>
         <%!          
             String nickname;

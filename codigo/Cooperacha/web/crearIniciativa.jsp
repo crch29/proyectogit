@@ -14,7 +14,7 @@
         
         <title>CREAR INICIATIVA</title>
     </head>
-       <body class="bg-success">
+       <body background="startup-1.jpg">
                 
             <nav role="navigation" class="navbar navbar-default navbar-inverse">
         <div class="navbar-header">
@@ -36,7 +36,7 @@
            
            
         
-           <form name="iniciativa" role="form" method="post">
+           <form name="iniciativa" role="form" action="crearIniciativa.jsp">
          <div class="text-center container">
           <h1>CREAR INICIATIVA</h1> 
           <div class="form-group">
@@ -98,7 +98,7 @@
         String cod_usuario=(String)s.getAttribute("cod_usuario");
         String estado= request.getParameter("estado");
         
-      
+    if(nombre!=null){  
     try {
 	cooperacha.Operaciones_Service service = new cooperacha.Operaciones_Service();
 	cooperacha.Operaciones port = service.getOperacionesPort();
@@ -106,12 +106,12 @@
              String estad="false";
              port.ingresarIniciativaborrador(nombre, descripcion, tiempo, categoria, cod_usuario, meta, estad);
          }else{
-              port.ingresarIniciativa(nombre, descripcion, meta, tiempo, categoria, cod_usuario);
+              port.ingresarIniciativa(nombre, descripcion, tiempo, categoria, cod_usuario,meta);
          }
         
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
-    }
+    }}
     %>
   
        </form>

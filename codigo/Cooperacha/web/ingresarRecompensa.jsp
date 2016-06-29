@@ -14,7 +14,7 @@
         
         <title>CREAR RECOMPENSA</title>
     </head>
-       <body class="bg-success">
+       <body background="startup-1.jpg">
                 
             <nav role="navigation" class="navbar navbar-default navbar-inverse">
         <div class="navbar-header">
@@ -36,30 +36,30 @@
            
            
         
-           <form name="iniciativa" role="form" action="ingresarRecompensa.jsp">
+           <form name="recompensa" role="form" action="ingresarRecompensa.jsp">
          <div class="text-center container">
           <h1>CREAR RECOMPENSA</h1> 
           <div class="form-group">
               
               <table class="table table-striped table-bordered table-condensed">
                   		<tr>
-                                    <td><h5>STOCK</h5></td><td><input type="text" name="stock"></td>
+                                    <td><h5>STOCK</h5></td><td><input class="form-control" type="text" name="stock"></td>
                   		</tr>
                   		<tr>
-                                    <td><h5>DESCRIPCION</h5></td><td><textarea name="descripcion" rows="2"></textarea></td>
+                                    <td><h5>DESCRIPCION</h5></td><td><textarea class="form-control" name="descripcion" rows="2"></textarea></td>
                   		</tr>
                   		<tr>
-                                    <td><h5>TIPO</h5></td><td><select name="tipo"><option>limitada</option><option>ilimitada</option></select></td>
+                                    <td><h5>TIPO</h5></td><td><select class="form-control" name="tipo"><option>limitada</option><option>ilimitada</option></select></td>
                                 </tr>
                   		<tr>
-                  			<td><h5>PRECIO</h5></td><td><input type="text" name="precio"></td>
+                  			<td><h5>PRECIO</h5></td><td><input class="form-control" type="text" name="precio"></td>
                   		</tr>
                   		
                                 
                   		
                   		
             </table>
-           <button class="btn btn-primary" type="submit" name="agregar">agregar</button>
+           <button class="btn btn-primary form-control" type="submit" value="agregar" name="agregar">agregar</button>
                     
            </div>
  
@@ -75,6 +75,7 @@
       
         
       if(descripcion!=null){
+         
     try {
 	cooperacha.Operaciones_Service service = new cooperacha.Operaciones_Service();
 	cooperacha.Operaciones port = service.getOperacionesPort();
@@ -83,6 +84,7 @@
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
     }
+          
       }
     %>
   

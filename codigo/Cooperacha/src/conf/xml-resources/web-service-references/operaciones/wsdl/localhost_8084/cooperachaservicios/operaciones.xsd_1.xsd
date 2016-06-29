@@ -1,8 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://cooperacha/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://cooperacha/">
 
+<xs:element name="actualizarIniciativa" type="tns:actualizarIniciativa" />
+
 <xs:element name="actualizarIniciativaDonacion" type="tns:actualizarIniciativaDonacion" />
 
 <xs:element name="actualizarIniciativaDonacionResponse" type="tns:actualizarIniciativaDonacionResponse" />
+
+<xs:element name="actualizarIniciativaResponse" type="tns:actualizarIniciativaResponse" />
 
 <xs:element name="actualizarUsuario" type="tns:actualizarUsuario" />
 
@@ -20,6 +24,10 @@
 
 <xs:element name="consultaRecompensaIniciativaResponse" type="tns:consultaRecompensaIniciativaResponse" />
 
+<xs:element name="consultarIniciativa" type="tns:consultarIniciativa" />
+
+<xs:element name="consultarIniciativaResponse" type="tns:consultarIniciativaResponse" />
+
 <xs:element name="consultarInicitativaporusuario" type="tns:consultarInicitativaporusuario" />
 
 <xs:element name="consultarInicitativaporusuarioResponse" type="tns:consultarInicitativaporusuarioResponse" />
@@ -36,9 +44,21 @@
 
 <xs:element name="consultareliminarborradorResponse" type="tns:consultareliminarborradorResponse" />
 
+<xs:element name="crearusuario" type="tns:crearusuario" />
+
+<xs:element name="crearusuarioResponse" type="tns:crearusuarioResponse" />
+
 <xs:element name="eliminarIniciativaborrador" type="tns:eliminarIniciativaborrador" />
 
 <xs:element name="eliminarIniciativaborradorResponse" type="tns:eliminarIniciativaborradorResponse" />
+
+<xs:element name="eliminarmoderadoriniciativa" type="tns:eliminarmoderadoriniciativa" />
+
+<xs:element name="eliminarmoderadoriniciativaResponse" type="tns:eliminarmoderadoriniciativaResponse" />
+
+<xs:element name="gestionarmoderador" type="tns:gestionarmoderador" />
+
+<xs:element name="gestionarmoderadorResponse" type="tns:gestionarmoderadorResponse" />
 
 <xs:element name="ingresarIniciativa" type="tns:ingresarIniciativa" />
 
@@ -63,6 +83,14 @@
 <xs:element name="mostrarIniciativa" type="tns:mostrarIniciativa" />
 
 <xs:element name="mostrarIniciativaResponse" type="tns:mostrarIniciativaResponse" />
+
+<xs:element name="obtenerfecha" type="tns:obtenerfecha" />
+
+<xs:element name="obtenerfechaResponse" type="tns:obtenerfechaResponse" />
+
+<xs:element name="publicarborrador" type="tns:publicarborrador" />
+
+<xs:element name="publicarborradorResponse" type="tns:publicarborradorResponse" />
 
 <xs:element name="validarusuario" type="tns:validarusuario" />
 
@@ -122,10 +150,23 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="gestionarmoderador">
+<xs:sequence>
+<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="gestionarmoderadorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="ingresarModerador">
 <xs:sequence>
 <xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
 <xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
+<xs:element name="fecha" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 
@@ -181,6 +222,30 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="actualizarIniciativa">
+<xs:sequence>
+<xs:element name="tiempo" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="meta" type="xs:string" minOccurs="0" />
+<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarIniciativaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="eliminarmoderadoriniciativa">
+<xs:sequence>
+<xs:element name="codusuario" type="xs:string" minOccurs="0" />
+<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarmoderadoriniciativaResponse">
+<xs:sequence />
+</xs:complexType>
+
 <xs:complexType name="eliminarIniciativaborrador">
 <xs:sequence>
 <xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
@@ -206,6 +271,18 @@
 <xs:sequence />
 </xs:complexType>
 
+<xs:complexType name="consultarIniciativa">
+<xs:sequence>
+<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultarIniciativaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:iniciativa" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="actualizarUsuario">
 <xs:sequence>
 <xs:element name="contrasena" type="xs:string" minOccurs="0" />
@@ -216,6 +293,22 @@
 </xs:complexType>
 
 <xs:complexType name="actualizarUsuarioResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="crearusuario">
+<xs:sequence>
+<xs:element name="nickname" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="contrasena" type="xs:string" minOccurs="0" />
+<xs:element name="fecha_nac" type="xs:string" minOccurs="0" />
+<xs:element name="direccion" type="xs:string" minOccurs="0" />
+<xs:element name="telefono" type="xs:string" minOccurs="0" />
+<xs:element name="cod_formapago" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearusuarioResponse">
 <xs:sequence />
 </xs:complexType>
 
@@ -239,6 +332,16 @@
 </xs:complexType>
 
 <xs:complexType name="actualizarIniciativaDonacionResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="publicarborrador">
+<xs:sequence>
+<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="publicarborradorResponse">
 <xs:sequence />
 </xs:complexType>
 
@@ -278,6 +381,16 @@
 
 <xs:complexType name="ingresarRecompensaResponse">
 <xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="obtenerfecha">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="obtenerfechaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="consultarInicitativaporusuario">

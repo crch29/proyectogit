@@ -14,7 +14,7 @@
         
         <title>Iniciativa</title>
     </head>
-       <body class="bg-success">
+       <body background="startup-1.jpg">
                 
             <nav role="navigation" class="navbar navbar-default navbar-inverse">
         <div class="navbar-header">

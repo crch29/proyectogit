@@ -15,7 +15,7 @@
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <title>Principal</title>
     </head>
-    <body class="bg-success">
+    <body background="startup-1.jpg">
  <nav role="navigation" class="navbar navbar-default navbar-inverse">
         <div class="navbar-header">
             <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
@@ -34,11 +34,13 @@
                      Iniciativa <b></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="crearIniciativa.jsp">Crear Iniciativa</a></li>
+                    <li><a href="crearIniciativa.jsp">Crear Iniciativa/Borrador</a></li>
                     <li><a href="busquedaIniciativa.jsp">Buscar Iniciativa por nombre</a></li>
-                    <li><a href="iniciativasPublicadas.jsp">Iniciativas publicadas</a></li>
-                     <li><a href="asignarModerador.jsp">asignar moderador</a></li>
+                    <li><a href="iniciativasPublicadas.jsp">Iniciativas publicadas en plataforma</a></li>
+                    
                      <li><a href="eliminarBorrador.jsp">eliminar borrador</a></li>
+                     <li><a href="publicarBorradorI.jsp">publicar borrador</a></li>
+                     <li><a href="modificarIniciativaI.jsp">Modificar Iniciativa</a></li>
                 </ul>
                 </li> 
                 <li class="dropdown">
@@ -48,6 +50,16 @@
                 <ul class="dropdown-menu">
                     <li><a href="crearRecompensa.jsp">ingresar recompensa</a></li>
                     
+                     
+                </ul>
+                </li> 
+                <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                     Moderador <b></b>
+                </a>
+                <ul class="dropdown-menu">
+                     <li><a href="asignarModerador.jsp">asignar moderador</a></li>
+                    <li><a href="mantenerModerador.jsp">Gestionar Moderador</a></li>
                      
                 </ul>
                 </li> 

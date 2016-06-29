@@ -1,6 +1,6 @@
 <%-- 
-    Document   : asignarModerador
-    Created on : 27/06/2016, 12:17:10 AM
+    Document   : mantenerModerador
+    Created on : 29/06/2016, 06:48:13 AM
     Author     : carlosrene
 --%>
 
@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         
-        <title>Asignar Moderador</title>
+        <title>Gestionar Moderador</title>
     </head>
        <body background="startup-1.jpg">
                 
@@ -29,7 +29,7 @@
  
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Inicio</a></li>
+                <li class="active"><a href="principal.jsp">Inicio</a></li>
             </ul>
         </div>
 </nav>
@@ -74,14 +74,14 @@
                             
               %><tr>
                  
-                  <td><%=nombre%></td><td><%=meta%></td><td><%=monto%></td><td><button class="form-control btn btn-primary" type="submit" value="<%=cod_iniciativa%>" name="<%=cod_iniciativa%>">asignar moderador</button></td>
+                  <td><%=nombre%></td><td><%=meta%></td><td><%=monto%></td><td><button class="form-control btn btn-primary" type="submit" value="<%=cod_iniciativa%>" name="<%=cod_iniciativa%>">gestionar moderador</button></td>
                </tr><%
                         String clave=request.getParameter(String.valueOf(cod_iniciativa));
                         if(clave!=null){
                             s.setAttribute("codigo",clave);
                             String uno=(String)s.getAttribute("codigo");
                             
-                            %><jsp:forward page="ingresarModerador.jsp"></jsp:forward><%
+                            %><jsp:forward page="mantenerModeradorII.jsp"></jsp:forward><%
                         }
                         
                         }
