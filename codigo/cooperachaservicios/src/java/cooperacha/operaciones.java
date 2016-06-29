@@ -14,6 +14,7 @@ import cooperacha.Categoria;
 import cooperacha.Usuario;
 import cooperacha.Iniciativa;
 import cooperacha.Recompensa;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -104,7 +105,7 @@ public class operaciones {
             try{
                 conexiones con=new conexiones();
                 con.conectar();
-                rs=con.consultar(String.format("select * from Iniciativa where nombre like '%s';", clave1));
+                rs=con.consultar(String.format("select * from Iniciativa where estado='true' and nombre like '%s';", clave1));
                  while(rs.next()){
               Iniciativa iniciativa=new Iniciativa();
               iniciativa.setCodiniciativa(rs.getInt("cod_iniciativa"));
@@ -332,8 +333,8 @@ public class operaciones {
      * Web service operation
      */
     @WebMethod(operationName = "ingresarModerador")
-    public void ingresarModerador(@WebParam(name = "cod_iniciativa") String cod_iniciativa, @WebParam(name = "cod_usuario") String cod_usuario) {
-        String instruccion = String.format("insert into Moderador(cod_iniciativa,cod_usuario) values(%s,%s);",cod_iniciativa,cod_usuario);
+    public void ingresarModerador(@WebParam(name = "cod_iniciativa") String cod_iniciativa, @WebParam(name = "cod_usuario") String cod_usuario, @WebParam(name = "fecha") String fecha) {
+        String instruccion = String.format("insert into Moderador(cod_iniciativa,cod_usuario,fecha) values(%s,%s,'%s');",cod_iniciativa,cod_usuario,fecha);
         try{
             conexiones con= new conexiones();
             con.agregar(instruccion);
@@ -393,7 +394,127 @@ public class operaciones {
      */
     @WebMethod(operationName = "ingresarRecompensa")
     public void ingresarRecompensa(@WebParam(name = "stock") String stock, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "tipo") String tipo, @WebParam(name = "cod_iniciativa") String cod_iniciativa, @WebParam(name = "precio") String precio) {
-       String instruccion = String.format("insert into Recompensa(stock,descripcion,tipo,cod_iniciativa,precio) values(%s,'%s','%s',%s,%s);",stock,descripcion,tipo,cod_iniciativa,precio);
+       String instruccion = String.format("insert into Recompensa(stock,descripcion,tipo,cod_iniciativa,precio_unidad) values(%s,'%s','%s',%s,%s);",stock,descripcion,tipo,cod_iniciativa,precio);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "actualizarIniciativa")
+    public void actualizarIniciativa(@WebParam(name = "tiempo") String tiempo, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "meta") String meta,  @WebParam(name = "cod_iniciativa") String cod_iniciativa) {
+        String instruccion = String.format("update Iniciativa set tiempo='%s', descripcion='%s', meta=%s where cod_iniciativa=%s;",tiempo,descripcion,meta,cod_iniciativa);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "consultarIniciativa")
+    public List<Iniciativa> consultarIniciativa(@WebParam(name = "cod_iniciativa") String cod_iniciativa) {
+      List<Iniciativa> listai= new ArrayList<Iniciativa>();
+            try{
+                conexiones con=new conexiones();
+                con.conectar();
+                rs=con.consultar(String.format("select * from Iniciativa where cod_iniciativa=%s;",cod_iniciativa));
+                 while(rs.next()){
+              Iniciativa iniciativa=new Iniciativa();
+              iniciativa.setTiempo(rs.getString("tiempo"));
+              iniciativa.setDescripcion(rs.getString("descripcion"));
+              iniciativa.setMeta(rs.getDouble("meta"));
+              listai.add(iniciativa);
+            }
+            }catch(Exception e){
+                 
+            }
+            
+            return listai;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "crearusuario")
+    public void crearusuario(@WebParam(name = "nickname") String nickname, @WebParam(name = "nombre") String nombre, @WebParam(name = "contrasena") String contrasena, @WebParam(name = "fecha_nac") String fecha_nac, @WebParam(name = "direccion") String direccion, @WebParam(name = "telefono") String telefono, @WebParam(name = "cod_formapago") String cod_formapago) {
+        String instruccion = String.format("insert into Usuario(nickname,nombre,contraseña,fecha_nac,direccion,telefono,cod_formapago) values('%s','%s','%s','%s','%s',%s,%s);",nickname, nombre, contrasena, fecha_nac, direccion, telefono, cod_formapago );
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "publicarborrador")
+    public void publicarborrador(@WebParam(name = "cod_iniciativa") String cod_iniciativa) {
+         String instruccion = String.format("update Iniciativa set estado='true' where cod_iniciativa=%s;",cod_iniciativa);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "obtenerfecha")
+    public String obtenerfecha() {
+       java.util.Date ahora = new java.util.Date();
+    SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+    return formateador.format(ahora);
+       
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "gestionarmoderador")
+    public List<Usuario> gestionarmoderador(@WebParam(name = "cod_iniciativa") String cod_iniciativa) {
+        List<Usuario> listau= new ArrayList<Usuario>();
+            try{
+                conexiones con=new conexiones();
+                con.conectar();
+                rs=con.consultar(String.format("select Usuario.cod_usuario, Usuario.nickname, Usuario.nombre from Moderador join Usuario on Moderador.cod_usuario=Usuario.cod_usuario where cod_iniciativa=%s;",cod_iniciativa));
+                 while(rs.next()){
+              Usuario usuario=new Usuario();
+              usuario.setNickname(rs.getString("nickname"));
+              usuario.setCodusuario(rs.getInt("cod_usuario"));
+              usuario.setNombre(rs.getString("nombre"));
+              
+              listau.add(usuario);
+            }
+            }catch(Exception e){
+                 
+            }
+            
+            return listau;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "eliminarmoderadoriniciativa")
+    public void eliminarmoderadoriniciativa(@WebParam(name = "codusuario") String codusuario, @WebParam(name = "cod_iniciativa") String cod_iniciativa) {
+       String instruccion = String.format("delete from Moderador where cod_usuario=%s and cod_iniciativa=%s;",codusuario,cod_iniciativa);
         try{
             conexiones con= new conexiones();
             con.agregar(instruccion);
