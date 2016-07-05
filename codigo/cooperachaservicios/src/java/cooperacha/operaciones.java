@@ -16,6 +16,7 @@ import cooperacha.Iniciativa;
 import cooperacha.Recompensa;
 import java.text.SimpleDateFormat;
 
+
 /**
  *
  * @author carlosrene
@@ -245,7 +246,7 @@ public class operaciones {
     }
 
     /**
-     * Web service operation
+     * metodo que se utiliza para iniciativa creacion
      */
     @WebMethod(operationName = "ingresarIniciativaborrador")
     public void ingresarIniciativaborrador(@WebParam(name = "nombre") String nombre, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "tiempo") String tiempo, @WebParam(name = "cod_categoria") String cod_categoria, @WebParam(name = "cod_usuario") String cod_usuario, @WebParam(name = "meta") String meta, @WebParam(name = "estado") String estado) {
@@ -523,5 +524,66 @@ public class operaciones {
         
         }
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "ingresarcomentario")
+    public void ingresarcomentario(@WebParam(name = "descripcion") String descripcion, @WebParam(name = "fecha") String fecha, @WebParam(name = "cod_usuario") String cod_usuario, @WebParam(name = "cod_iniciativa") String cod_iniciativa) {
+        String instruccion = String.format("insert into Comentario(descripcion,fecha,cod_usuario,cod_iniciativa) values('%s','%s',%s,%s);",descripcion,fecha,cod_usuario,cod_iniciativa);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "eliminarcomentario")
+    public void eliminarcomentario(@WebParam(name = "id") String id) {
+         String instruccion = String.format("delete from Comentario where cod_comentario=%s",id);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "buscarcomentario")
+    public List<Comentario> buscarcomentario(@WebParam(name = "cod_iniciativa") String cod_iniciativa) {
+         List<Comentario> listac= new ArrayList<Comentario>();
+            try{
+                conexiones con=new conexiones();
+                con.conectar();
+                rs=con.consultar(String.format("select * from Comentario where cod_iniciativa=%s;",cod_iniciativa));
+                 while(rs.next()){
+              Comentario comentario=new Comentario();
+              comentario.setFecha(rs.getString("fecha"));
+              comentario.setDescripcion(rs.getString("descripcion"));
+              comentario.setCod_usuario(rs.getInt("cod_usuario"));
+              comentario.setCod_comentario(rs.getInt("cod_comentario"));
+              listac.add(comentario);
+            }
+            }catch(Exception e){
+                 
+            }
+            
+            return listac;
+    }
+
+
+
+   
+
+
 }
 

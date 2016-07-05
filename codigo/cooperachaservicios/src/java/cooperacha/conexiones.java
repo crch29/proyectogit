@@ -36,6 +36,10 @@ public void conectar() {
     } 
 }
 
+    public Connection getconexion(){
+        return conexion;
+    }
+
     // inserta o actualiza en base de datos
     public void agregar (String cadena) throws Exception { 
         if (conexion == null) { 
