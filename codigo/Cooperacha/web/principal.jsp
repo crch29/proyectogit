@@ -45,6 +45,17 @@
                 </li> 
                 <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                     Cometarios <b></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="generarcomentario.jsp">Comentar</a></li>
+                    <li><a href="eliminarcomentario.jsp">eliminar comentario</a></li>
+                    
+                     
+                </ul>
+                </li> 
+                <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
                      Recompensa <b></b>
                 </a>
                 <ul class="dropdown-menu">

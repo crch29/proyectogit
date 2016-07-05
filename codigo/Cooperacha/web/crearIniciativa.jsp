@@ -36,7 +36,7 @@
            
            
         
-           <form name="iniciativa" role="form" action="crearIniciativa.jsp">
+           <form name="iniciativa" role="form" >
          <div class="text-center container">
           <h1>CREAR INICIATIVA</h1> 
           <div class="form-group">
@@ -90,6 +90,9 @@
             
             <%
         String nombre = request.getParameter("nombre");
+        
+        
+    if(nombre!=null){  
         String descripcion = request.getParameter("descripcion");
         String meta = request.getParameter("meta");
         String tiempo = request.getParameter("tiempo");
@@ -97,19 +100,15 @@
         HttpSession s = request.getSession();
         String cod_usuario=(String)s.getAttribute("cod_usuario");
         String estado= request.getParameter("estado");
-        
-    if(nombre!=null){  
     try {
 	cooperacha.Operaciones_Service service = new cooperacha.Operaciones_Service();
 	cooperacha.Operaciones port = service.getOperacionesPort();
+        String estad="true";
 	 if(estado.equals("borrador")){
-             String estad="false";
-             port.ingresarIniciativaborrador(nombre, descripcion, tiempo, categoria, cod_usuario, meta, estad);
-         }else{
-              port.ingresarIniciativa(nombre, descripcion, tiempo, categoria, cod_usuario,meta);
+             estad="false";
          }
-        
-    } catch (Exception ex) {
+         port.ingresarIniciativaborrador(nombre, descripcion, tiempo, categoria, cod_usuario, meta, estad);
+    }catch (Exception ex) {
 	// TODO handle custom exceptions here
     }}
     %>

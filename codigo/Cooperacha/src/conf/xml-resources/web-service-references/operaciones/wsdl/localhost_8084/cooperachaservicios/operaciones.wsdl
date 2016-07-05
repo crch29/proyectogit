@@ -10,18 +10,6 @@
 <message name="consultareliminarborradorResponse">
 <part name="parameters" element="tns:consultareliminarborradorResponse" />
 </message>
-<message name="consultarInicitativaporusuario">
-<part name="parameters" element="tns:consultarInicitativaporusuario" />
-</message>
-<message name="consultarInicitativaporusuarioResponse">
-<part name="parameters" element="tns:consultarInicitativaporusuarioResponse" />
-</message>
-<message name="ingresarModerador">
-<part name="parameters" element="tns:ingresarModerador" />
-</message>
-<message name="ingresarModeradorResponse">
-<part name="parameters" element="tns:ingresarModeradorResponse" />
-</message>
 <message name="eliminarIniciativaborrador">
 <part name="parameters" element="tns:eliminarIniciativaborrador" />
 </message>
@@ -46,17 +34,71 @@
 <message name="consultarIniciativaResponse">
 <part name="parameters" element="tns:consultarIniciativaResponse" />
 </message>
-<message name="consultaRecompensaIniciativa">
-<part name="parameters" element="tns:consultaRecompensaIniciativa" />
+<message name="gestionarmoderador">
+<part name="parameters" element="tns:gestionarmoderador" />
 </message>
-<message name="consultaRecompensaIniciativaResponse">
-<part name="parameters" element="tns:consultaRecompensaIniciativaResponse" />
+<message name="gestionarmoderadorResponse">
+<part name="parameters" element="tns:gestionarmoderadorResponse" />
+</message>
+<message name="eliminarmoderadoriniciativa">
+<part name="parameters" element="tns:eliminarmoderadoriniciativa" />
+</message>
+<message name="eliminarmoderadoriniciativaResponse">
+<part name="parameters" element="tns:eliminarmoderadoriniciativaResponse" />
+</message>
+<message name="ingresarcomentario">
+<part name="parameters" element="tns:ingresarcomentario" />
+</message>
+<message name="ingresarcomentarioResponse">
+<part name="parameters" element="tns:ingresarcomentarioResponse" />
 </message>
 <message name="mostrarIniciativa">
 <part name="parameters" element="tns:mostrarIniciativa" />
 </message>
 <message name="mostrarIniciativaResponse">
 <part name="parameters" element="tns:mostrarIniciativaResponse" />
+</message>
+<message name="actualizarIniciativaDonacion">
+<part name="parameters" element="tns:actualizarIniciativaDonacion" />
+</message>
+<message name="actualizarIniciativaDonacionResponse">
+<part name="parameters" element="tns:actualizarIniciativaDonacionResponse" />
+</message>
+<message name="ingresarIniciativaborrador">
+<part name="parameters" element="tns:ingresarIniciativaborrador" />
+</message>
+<message name="ingresarIniciativaborradorResponse">
+<part name="parameters" element="tns:ingresarIniciativaborradorResponse" />
+</message>
+<message name="consultaRecompensaIniciativa">
+<part name="parameters" element="tns:consultaRecompensaIniciativa" />
+</message>
+<message name="consultaRecompensaIniciativaResponse">
+<part name="parameters" element="tns:consultaRecompensaIniciativaResponse" />
+</message>
+<message name="actualizarUsuario">
+<part name="parameters" element="tns:actualizarUsuario" />
+</message>
+<message name="actualizarUsuarioResponse">
+<part name="parameters" element="tns:actualizarUsuarioResponse" />
+</message>
+<message name="consultarInicitativaporusuario">
+<part name="parameters" element="tns:consultarInicitativaporusuario" />
+</message>
+<message name="consultarInicitativaporusuarioResponse">
+<part name="parameters" element="tns:consultarInicitativaporusuarioResponse" />
+</message>
+<message name="ingresarModerador">
+<part name="parameters" element="tns:ingresarModerador" />
+</message>
+<message name="ingresarModeradorResponse">
+<part name="parameters" element="tns:ingresarModeradorResponse" />
+</message>
+<message name="ingresarIniciativa">
+<part name="parameters" element="tns:ingresarIniciativa" />
+</message>
+<message name="ingresarIniciativaResponse">
+<part name="parameters" element="tns:ingresarIniciativaResponse" />
 </message>
 <message name="busquedainiciativa">
 <part name="parameters" element="tns:busquedainiciativa" />
@@ -70,35 +112,11 @@
 <message name="consultaIniciativasPublicadasResponse">
 <part name="parameters" element="tns:consultaIniciativasPublicadasResponse" />
 </message>
-<message name="ingresarIniciativa">
-<part name="parameters" element="tns:ingresarIniciativa" />
+<message name="publicarborrador">
+<part name="parameters" element="tns:publicarborrador" />
 </message>
-<message name="ingresarIniciativaResponse">
-<part name="parameters" element="tns:ingresarIniciativaResponse" />
-</message>
-<message name="ingresarIniciativaborrador">
-<part name="parameters" element="tns:ingresarIniciativaborrador" />
-</message>
-<message name="ingresarIniciativaborradorResponse">
-<part name="parameters" element="tns:ingresarIniciativaborradorResponse" />
-</message>
-<message name="actualizarIniciativaDonacion">
-<part name="parameters" element="tns:actualizarIniciativaDonacion" />
-</message>
-<message name="actualizarIniciativaDonacionResponse">
-<part name="parameters" element="tns:actualizarIniciativaDonacionResponse" />
-</message>
-<message name="actualizarUsuario">
-<part name="parameters" element="tns:actualizarUsuario" />
-</message>
-<message name="actualizarUsuarioResponse">
-<part name="parameters" element="tns:actualizarUsuarioResponse" />
-</message>
-<message name="obtenerfecha">
-<part name="parameters" element="tns:obtenerfecha" />
-</message>
-<message name="obtenerfechaResponse">
-<part name="parameters" element="tns:obtenerfechaResponse" />
+<message name="publicarborradorResponse">
+<part name="parameters" element="tns:publicarborradorResponse" />
 </message>
 <message name="validarusuario">
 <part name="parameters" element="tns:validarusuario" />
@@ -106,23 +124,11 @@
 <message name="validarusuarioResponse">
 <part name="parameters" element="tns:validarusuarioResponse" />
 </message>
-<message name="insertarDonacion">
-<part name="parameters" element="tns:insertarDonacion" />
-</message>
-<message name="insertarDonacionResponse">
-<part name="parameters" element="tns:insertarDonacionResponse" />
-</message>
 <message name="consultarListas">
 <part name="parameters" element="tns:consultarListas" />
 </message>
 <message name="consultarListasResponse">
 <part name="parameters" element="tns:consultarListasResponse" />
-</message>
-<message name="consultarUsuario">
-<part name="parameters" element="tns:consultarUsuario" />
-</message>
-<message name="consultarUsuarioResponse">
-<part name="parameters" element="tns:consultarUsuarioResponse" />
 </message>
 <message name="crearusuario">
 <part name="parameters" element="tns:crearusuario" />
@@ -130,36 +136,40 @@
 <message name="crearusuarioResponse">
 <part name="parameters" element="tns:crearusuarioResponse" />
 </message>
-<message name="publicarborrador">
-<part name="parameters" element="tns:publicarborrador" />
+<message name="buscarcomentario">
+<part name="parameters" element="tns:buscarcomentario" />
 </message>
-<message name="publicarborradorResponse">
-<part name="parameters" element="tns:publicarborradorResponse" />
+<message name="buscarcomentarioResponse">
+<part name="parameters" element="tns:buscarcomentarioResponse" />
 </message>
-<message name="gestionarmoderador">
-<part name="parameters" element="tns:gestionarmoderador" />
+<message name="insertarDonacion">
+<part name="parameters" element="tns:insertarDonacion" />
 </message>
-<message name="gestionarmoderadorResponse">
-<part name="parameters" element="tns:gestionarmoderadorResponse" />
+<message name="insertarDonacionResponse">
+<part name="parameters" element="tns:insertarDonacionResponse" />
 </message>
-<message name="eliminarmoderadoriniciativa">
-<part name="parameters" element="tns:eliminarmoderadoriniciativa" />
+<message name="consultarUsuario">
+<part name="parameters" element="tns:consultarUsuario" />
 </message>
-<message name="eliminarmoderadoriniciativaResponse">
-<part name="parameters" element="tns:eliminarmoderadoriniciativaResponse" />
+<message name="consultarUsuarioResponse">
+<part name="parameters" element="tns:consultarUsuarioResponse" />
+</message>
+<message name="obtenerfecha">
+<part name="parameters" element="tns:obtenerfecha" />
+</message>
+<message name="obtenerfechaResponse">
+<part name="parameters" element="tns:obtenerfechaResponse" />
+</message>
+<message name="eliminarcomentario">
+<part name="parameters" element="tns:eliminarcomentario" />
+</message>
+<message name="eliminarcomentarioResponse">
+<part name="parameters" element="tns:eliminarcomentarioResponse" />
 </message>
 <portType name="operaciones">
 <operation name="consultareliminarborrador">
 <input wsam:Action="http://cooperacha/operaciones/consultareliminarborradorRequest" message="tns:consultareliminarborrador" />
 <output wsam:Action="http://cooperacha/operaciones/consultareliminarborradorResponse" message="tns:consultareliminarborradorResponse" />
-</operation>
-<operation name="consultarInicitativaporusuario">
-<input wsam:Action="http://cooperacha/operaciones/consultarInicitativaporusuarioRequest" message="tns:consultarInicitativaporusuario" />
-<output wsam:Action="http://cooperacha/operaciones/consultarInicitativaporusuarioResponse" message="tns:consultarInicitativaporusuarioResponse" />
-</operation>
-<operation name="ingresarModerador">
-<input wsam:Action="http://cooperacha/operaciones/ingresarModeradorRequest" message="tns:ingresarModerador" />
-<output wsam:Action="http://cooperacha/operaciones/ingresarModeradorResponse" message="tns:ingresarModeradorResponse" />
 </operation>
 <operation name="eliminarIniciativaborrador">
 <input wsam:Action="http://cooperacha/operaciones/eliminarIniciativaborradorRequest" message="tns:eliminarIniciativaborrador" />
@@ -177,13 +187,49 @@
 <input wsam:Action="http://cooperacha/operaciones/consultarIniciativaRequest" message="tns:consultarIniciativa" />
 <output wsam:Action="http://cooperacha/operaciones/consultarIniciativaResponse" message="tns:consultarIniciativaResponse" />
 </operation>
-<operation name="consultaRecompensaIniciativa">
-<input wsam:Action="http://cooperacha/operaciones/consultaRecompensaIniciativaRequest" message="tns:consultaRecompensaIniciativa" />
-<output wsam:Action="http://cooperacha/operaciones/consultaRecompensaIniciativaResponse" message="tns:consultaRecompensaIniciativaResponse" />
+<operation name="gestionarmoderador">
+<input wsam:Action="http://cooperacha/operaciones/gestionarmoderadorRequest" message="tns:gestionarmoderador" />
+<output wsam:Action="http://cooperacha/operaciones/gestionarmoderadorResponse" message="tns:gestionarmoderadorResponse" />
+</operation>
+<operation name="eliminarmoderadoriniciativa">
+<input wsam:Action="http://cooperacha/operaciones/eliminarmoderadoriniciativaRequest" message="tns:eliminarmoderadoriniciativa" />
+<output wsam:Action="http://cooperacha/operaciones/eliminarmoderadoriniciativaResponse" message="tns:eliminarmoderadoriniciativaResponse" />
+</operation>
+<operation name="ingresarcomentario">
+<input wsam:Action="http://cooperacha/operaciones/ingresarcomentarioRequest" message="tns:ingresarcomentario" />
+<output wsam:Action="http://cooperacha/operaciones/ingresarcomentarioResponse" message="tns:ingresarcomentarioResponse" />
 </operation>
 <operation name="mostrarIniciativa">
 <input wsam:Action="http://cooperacha/operaciones/mostrarIniciativaRequest" message="tns:mostrarIniciativa" />
 <output wsam:Action="http://cooperacha/operaciones/mostrarIniciativaResponse" message="tns:mostrarIniciativaResponse" />
+</operation>
+<operation name="actualizarIniciativaDonacion">
+<input wsam:Action="http://cooperacha/operaciones/actualizarIniciativaDonacionRequest" message="tns:actualizarIniciativaDonacion" />
+<output wsam:Action="http://cooperacha/operaciones/actualizarIniciativaDonacionResponse" message="tns:actualizarIniciativaDonacionResponse" />
+</operation>
+<operation name="ingresarIniciativaborrador">
+<input wsam:Action="http://cooperacha/operaciones/ingresarIniciativaborradorRequest" message="tns:ingresarIniciativaborrador" />
+<output wsam:Action="http://cooperacha/operaciones/ingresarIniciativaborradorResponse" message="tns:ingresarIniciativaborradorResponse" />
+</operation>
+<operation name="consultaRecompensaIniciativa">
+<input wsam:Action="http://cooperacha/operaciones/consultaRecompensaIniciativaRequest" message="tns:consultaRecompensaIniciativa" />
+<output wsam:Action="http://cooperacha/operaciones/consultaRecompensaIniciativaResponse" message="tns:consultaRecompensaIniciativaResponse" />
+</operation>
+<operation name="actualizarUsuario">
+<input wsam:Action="http://cooperacha/operaciones/actualizarUsuarioRequest" message="tns:actualizarUsuario" />
+<output wsam:Action="http://cooperacha/operaciones/actualizarUsuarioResponse" message="tns:actualizarUsuarioResponse" />
+</operation>
+<operation name="consultarInicitativaporusuario">
+<input wsam:Action="http://cooperacha/operaciones/consultarInicitativaporusuarioRequest" message="tns:consultarInicitativaporusuario" />
+<output wsam:Action="http://cooperacha/operaciones/consultarInicitativaporusuarioResponse" message="tns:consultarInicitativaporusuarioResponse" />
+</operation>
+<operation name="ingresarModerador">
+<input wsam:Action="http://cooperacha/operaciones/ingresarModeradorRequest" message="tns:ingresarModerador" />
+<output wsam:Action="http://cooperacha/operaciones/ingresarModeradorResponse" message="tns:ingresarModeradorResponse" />
+</operation>
+<operation name="ingresarIniciativa">
+<input wsam:Action="http://cooperacha/operaciones/ingresarIniciativaRequest" message="tns:ingresarIniciativa" />
+<output wsam:Action="http://cooperacha/operaciones/ingresarIniciativaResponse" message="tns:ingresarIniciativaResponse" />
 </operation>
 <operation name="busquedainiciativa">
 <input wsam:Action="http://cooperacha/operaciones/busquedainiciativaRequest" message="tns:busquedainiciativa" />
@@ -193,80 +239,46 @@
 <input wsam:Action="http://cooperacha/operaciones/consultaIniciativasPublicadasRequest" message="tns:consultaIniciativasPublicadas" />
 <output wsam:Action="http://cooperacha/operaciones/consultaIniciativasPublicadasResponse" message="tns:consultaIniciativasPublicadasResponse" />
 </operation>
-<operation name="ingresarIniciativa">
-<input wsam:Action="http://cooperacha/operaciones/ingresarIniciativaRequest" message="tns:ingresarIniciativa" />
-<output wsam:Action="http://cooperacha/operaciones/ingresarIniciativaResponse" message="tns:ingresarIniciativaResponse" />
-</operation>
-<operation name="ingresarIniciativaborrador">
-<input wsam:Action="http://cooperacha/operaciones/ingresarIniciativaborradorRequest" message="tns:ingresarIniciativaborrador" />
-<output wsam:Action="http://cooperacha/operaciones/ingresarIniciativaborradorResponse" message="tns:ingresarIniciativaborradorResponse" />
-</operation>
-<operation name="actualizarIniciativaDonacion">
-<input wsam:Action="http://cooperacha/operaciones/actualizarIniciativaDonacionRequest" message="tns:actualizarIniciativaDonacion" />
-<output wsam:Action="http://cooperacha/operaciones/actualizarIniciativaDonacionResponse" message="tns:actualizarIniciativaDonacionResponse" />
-</operation>
-<operation name="actualizarUsuario">
-<input wsam:Action="http://cooperacha/operaciones/actualizarUsuarioRequest" message="tns:actualizarUsuario" />
-<output wsam:Action="http://cooperacha/operaciones/actualizarUsuarioResponse" message="tns:actualizarUsuarioResponse" />
-</operation>
-<operation name="obtenerfecha">
-<input wsam:Action="http://cooperacha/operaciones/obtenerfechaRequest" message="tns:obtenerfecha" />
-<output wsam:Action="http://cooperacha/operaciones/obtenerfechaResponse" message="tns:obtenerfechaResponse" />
+<operation name="publicarborrador">
+<input wsam:Action="http://cooperacha/operaciones/publicarborradorRequest" message="tns:publicarborrador" />
+<output wsam:Action="http://cooperacha/operaciones/publicarborradorResponse" message="tns:publicarborradorResponse" />
 </operation>
 <operation name="validarusuario">
 <input wsam:Action="http://cooperacha/operaciones/validarusuarioRequest" message="tns:validarusuario" />
 <output wsam:Action="http://cooperacha/operaciones/validarusuarioResponse" message="tns:validarusuarioResponse" />
 </operation>
-<operation name="insertarDonacion">
-<input wsam:Action="http://cooperacha/operaciones/insertarDonacionRequest" message="tns:insertarDonacion" />
-<output wsam:Action="http://cooperacha/operaciones/insertarDonacionResponse" message="tns:insertarDonacionResponse" />
-</operation>
 <operation name="consultarListas">
 <input wsam:Action="http://cooperacha/operaciones/consultarListasRequest" message="tns:consultarListas" />
 <output wsam:Action="http://cooperacha/operaciones/consultarListasResponse" message="tns:consultarListasResponse" />
-</operation>
-<operation name="consultarUsuario">
-<input wsam:Action="http://cooperacha/operaciones/consultarUsuarioRequest" message="tns:consultarUsuario" />
-<output wsam:Action="http://cooperacha/operaciones/consultarUsuarioResponse" message="tns:consultarUsuarioResponse" />
 </operation>
 <operation name="crearusuario">
 <input wsam:Action="http://cooperacha/operaciones/crearusuarioRequest" message="tns:crearusuario" />
 <output wsam:Action="http://cooperacha/operaciones/crearusuarioResponse" message="tns:crearusuarioResponse" />
 </operation>
-<operation name="publicarborrador">
-<input wsam:Action="http://cooperacha/operaciones/publicarborradorRequest" message="tns:publicarborrador" />
-<output wsam:Action="http://cooperacha/operaciones/publicarborradorResponse" message="tns:publicarborradorResponse" />
+<operation name="buscarcomentario">
+<input wsam:Action="http://cooperacha/operaciones/buscarcomentarioRequest" message="tns:buscarcomentario" />
+<output wsam:Action="http://cooperacha/operaciones/buscarcomentarioResponse" message="tns:buscarcomentarioResponse" />
 </operation>
-<operation name="gestionarmoderador">
-<input wsam:Action="http://cooperacha/operaciones/gestionarmoderadorRequest" message="tns:gestionarmoderador" />
-<output wsam:Action="http://cooperacha/operaciones/gestionarmoderadorResponse" message="tns:gestionarmoderadorResponse" />
+<operation name="insertarDonacion">
+<input wsam:Action="http://cooperacha/operaciones/insertarDonacionRequest" message="tns:insertarDonacion" />
+<output wsam:Action="http://cooperacha/operaciones/insertarDonacionResponse" message="tns:insertarDonacionResponse" />
 </operation>
-<operation name="eliminarmoderadoriniciativa">
-<input wsam:Action="http://cooperacha/operaciones/eliminarmoderadoriniciativaRequest" message="tns:eliminarmoderadoriniciativa" />
-<output wsam:Action="http://cooperacha/operaciones/eliminarmoderadoriniciativaResponse" message="tns:eliminarmoderadoriniciativaResponse" />
+<operation name="consultarUsuario">
+<input wsam:Action="http://cooperacha/operaciones/consultarUsuarioRequest" message="tns:consultarUsuario" />
+<output wsam:Action="http://cooperacha/operaciones/consultarUsuarioResponse" message="tns:consultarUsuarioResponse" />
+</operation>
+<operation name="obtenerfecha">
+<input wsam:Action="http://cooperacha/operaciones/obtenerfechaRequest" message="tns:obtenerfecha" />
+<output wsam:Action="http://cooperacha/operaciones/obtenerfechaResponse" message="tns:obtenerfechaResponse" />
+</operation>
+<operation name="eliminarcomentario">
+<input wsam:Action="http://cooperacha/operaciones/eliminarcomentarioRequest" message="tns:eliminarcomentario" />
+<output wsam:Action="http://cooperacha/operaciones/eliminarcomentarioResponse" message="tns:eliminarcomentarioResponse" />
 </operation>
 </portType>
 <binding name="operacionesPortBinding" type="tns:operaciones">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
 <operation name="consultareliminarborrador">
-<soap:operation soapAction="" />
-<input>
-<soap:body use="literal" />
-</input>
-<output>
-<soap:body use="literal" />
-</output>
-</operation>
-<operation name="consultarInicitativaporusuario">
-<soap:operation soapAction="" />
-<input>
-<soap:body use="literal" />
-</input>
-<output>
-<soap:body use="literal" />
-</output>
-</operation>
-<operation name="ingresarModerador">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -311,7 +323,25 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<operation name="consultaRecompensaIniciativa">
+<operation name="gestionarmoderador">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="eliminarmoderadoriniciativa">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="ingresarcomentario">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -321,6 +351,69 @@
 </output>
 </operation>
 <operation name="mostrarIniciativa">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="actualizarIniciativaDonacion">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="ingresarIniciativaborrador">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="consultaRecompensaIniciativa">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="actualizarUsuario">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="consultarInicitativaporusuario">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="ingresarModerador">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="ingresarIniciativa">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -347,43 +440,7 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<operation name="ingresarIniciativa">
-<soap:operation soapAction="" />
-<input>
-<soap:body use="literal" />
-</input>
-<output>
-<soap:body use="literal" />
-</output>
-</operation>
-<operation name="ingresarIniciativaborrador">
-<soap:operation soapAction="" />
-<input>
-<soap:body use="literal" />
-</input>
-<output>
-<soap:body use="literal" />
-</output>
-</operation>
-<operation name="actualizarIniciativaDonacion">
-<soap:operation soapAction="" />
-<input>
-<soap:body use="literal" />
-</input>
-<output>
-<soap:body use="literal" />
-</output>
-</operation>
-<operation name="actualizarUsuario">
-<soap:operation soapAction="" />
-<input>
-<soap:body use="literal" />
-</input>
-<output>
-<soap:body use="literal" />
-</output>
-</operation>
-<operation name="obtenerfecha">
+<operation name="publicarborrador">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -401,25 +458,7 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<operation name="insertarDonacion">
-<soap:operation soapAction="" />
-<input>
-<soap:body use="literal" />
-</input>
-<output>
-<soap:body use="literal" />
-</output>
-</operation>
 <operation name="consultarListas">
-<soap:operation soapAction="" />
-<input>
-<soap:body use="literal" />
-</input>
-<output>
-<soap:body use="literal" />
-</output>
-</operation>
-<operation name="consultarUsuario">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -437,7 +476,7 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<operation name="publicarborrador">
+<operation name="buscarcomentario">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -446,7 +485,7 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<operation name="gestionarmoderador">
+<operation name="insertarDonacion">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -455,7 +494,25 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<operation name="eliminarmoderadoriniciativa">
+<operation name="consultarUsuario">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="obtenerfecha">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="eliminarcomentario">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />

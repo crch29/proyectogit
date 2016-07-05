@@ -12,6 +12,10 @@
 
 <xs:element name="actualizarUsuarioResponse" type="tns:actualizarUsuarioResponse" />
 
+<xs:element name="buscarcomentario" type="tns:buscarcomentario" />
+
+<xs:element name="buscarcomentarioResponse" type="tns:buscarcomentarioResponse" />
+
 <xs:element name="busquedainiciativa" type="tns:busquedainiciativa" />
 
 <xs:element name="busquedainiciativaResponse" type="tns:busquedainiciativaResponse" />
@@ -52,6 +56,10 @@
 
 <xs:element name="eliminarIniciativaborradorResponse" type="tns:eliminarIniciativaborradorResponse" />
 
+<xs:element name="eliminarcomentario" type="tns:eliminarcomentario" />
+
+<xs:element name="eliminarcomentarioResponse" type="tns:eliminarcomentarioResponse" />
+
 <xs:element name="eliminarmoderadoriniciativa" type="tns:eliminarmoderadoriniciativa" />
 
 <xs:element name="eliminarmoderadoriniciativaResponse" type="tns:eliminarmoderadoriniciativaResponse" />
@@ -75,6 +83,10 @@
 <xs:element name="ingresarRecompensa" type="tns:ingresarRecompensa" />
 
 <xs:element name="ingresarRecompensaResponse" type="tns:ingresarRecompensaResponse" />
+
+<xs:element name="ingresarcomentario" type="tns:ingresarcomentario" />
+
+<xs:element name="ingresarcomentarioResponse" type="tns:ingresarcomentarioResponse" />
 
 <xs:element name="insertarDonacion" type="tns:insertarDonacion" />
 
@@ -110,92 +122,17 @@
 <xs:sequence />
 </xs:complexType>
 
-<xs:complexType name="validarusuario">
+<xs:complexType name="ingresarcomentario">
 <xs:sequence>
-<xs:element name="nickname" type="xs:string" minOccurs="0" />
-<xs:element name="contrasena" type="xs:string" minOccurs="0" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="validarusuarioResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="consultarUsuario">
-<xs:sequence>
-<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="consultarUsuarioResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="usuario">
-<xs:sequence>
-<xs:element name="codformapago" type="xs:int" />
-<xs:element name="codrol" type="xs:int" />
-<xs:element name="codusuario" type="xs:int" />
-<xs:element name="contraseña" type="xs:string" minOccurs="0" />
-<xs:element name="direccion" type="xs:string" minOccurs="0" />
-<xs:element name="estado" type="xs:string" minOccurs="0" />
-<xs:element name="fechanac" type="xs:string" minOccurs="0" />
-<xs:element name="nickname" type="xs:string" minOccurs="0" />
-<xs:element name="nombre" type="xs:string" minOccurs="0" />
-<xs:element name="telefono" type="xs:int" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="gestionarmoderador">
-<xs:sequence>
-<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="gestionarmoderadorResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="ingresarModerador">
-<xs:sequence>
-<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
-<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
-<xs:element name="fecha" type="xs:string" minOccurs="0" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="ingresarModeradorResponse">
-<xs:sequence />
-</xs:complexType>
-
-<xs:complexType name="consultaIniciativasPublicadas">
-<xs:sequence />
-</xs:complexType>
-
-<xs:complexType name="consultaIniciativasPublicadasResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:iniciativa" minOccurs="0" maxOccurs="unbounded" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="iniciativa">
-<xs:sequence>
-<xs:element name="codcategoria" type="xs:int" />
-<xs:element name="codiniciativa" type="xs:int" />
-<xs:element name="codusuario" type="xs:int" />
 <xs:element name="descripcion" type="xs:string" minOccurs="0" />
-<xs:element name="estado" type="xs:string" minOccurs="0" />
-<xs:element name="meta" type="xs:double" />
-<xs:element name="monto" type="xs:double" />
-<xs:element name="nombre" type="xs:string" minOccurs="0" />
-<xs:element name="tiempo" type="xs:string" minOccurs="0" />
+<xs:element name="fecha" type="xs:string" minOccurs="0" />
+<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
+<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
 </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingresarcomentarioResponse">
+<xs:sequence />
 </xs:complexType>
 
 <xs:complexType name="consultaRecompensaIniciativa">
@@ -235,17 +172,6 @@
 <xs:sequence />
 </xs:complexType>
 
-<xs:complexType name="eliminarmoderadoriniciativa">
-<xs:sequence>
-<xs:element name="codusuario" type="xs:string" minOccurs="0" />
-<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="eliminarmoderadoriniciativaResponse">
-<xs:sequence />
-</xs:complexType>
-
 <xs:complexType name="eliminarIniciativaborrador">
 <xs:sequence>
 <xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
@@ -256,19 +182,27 @@
 <xs:sequence />
 </xs:complexType>
 
-<xs:complexType name="ingresarIniciativa">
+<xs:complexType name="buscarcomentario">
 <xs:sequence>
-<xs:element name="nombre" type="xs:string" minOccurs="0" />
-<xs:element name="descripcion" type="xs:string" minOccurs="0" />
-<xs:element name="meta" type="xs:string" minOccurs="0" />
-<xs:element name="tiempo" type="xs:string" minOccurs="0" />
-<xs:element name="cod_categoria" type="xs:string" minOccurs="0" />
-<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
+<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="ingresarIniciativaResponse">
-<xs:sequence />
+<xs:complexType name="buscarcomentarioResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:comentario" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comentario">
+<xs:sequence>
+<xs:element name="cod_comentario" type="xs:int" />
+<xs:element name="cod_iniciativa" type="xs:int" />
+<xs:element name="cod_usuario" type="xs:int" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="fecha" type="xs:string" minOccurs="0" />
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="consultarIniciativa">
@@ -283,17 +217,18 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="actualizarUsuario">
+<xs:complexType name="iniciativa">
 <xs:sequence>
-<xs:element name="contrasena" type="xs:string" minOccurs="0" />
-<xs:element name="direccion" type="xs:string" minOccurs="0" />
-<xs:element name="telefono" type="xs:string" minOccurs="0" />
-<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
+<xs:element name="codcategoria" type="xs:int" />
+<xs:element name="codiniciativa" type="xs:int" />
+<xs:element name="codusuario" type="xs:int" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="meta" type="xs:double" />
+<xs:element name="monto" type="xs:double" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="tiempo" type="xs:string" minOccurs="0" />
 </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="actualizarUsuarioResponse">
-<xs:sequence />
 </xs:complexType>
 
 <xs:complexType name="crearusuario">
@@ -310,18 +245,6 @@
 
 <xs:complexType name="crearusuarioResponse">
 <xs:sequence />
-</xs:complexType>
-
-<xs:complexType name="busquedainiciativa">
-<xs:sequence>
-<xs:element name="clave" type="xs:string" minOccurs="0" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="busquedainiciativaResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:iniciativa" minOccurs="0" maxOccurs="unbounded" />
-</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="actualizarIniciativaDonacion">
@@ -400,6 +323,141 @@
 </xs:complexType>
 
 <xs:complexType name="consultarInicitativaporusuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:iniciativa" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validarusuario">
+<xs:sequence>
+<xs:element name="nickname" type="xs:string" minOccurs="0" />
+<xs:element name="contrasena" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validarusuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultarUsuario">
+<xs:sequence>
+<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuario">
+<xs:sequence>
+<xs:element name="codformapago" type="xs:int" />
+<xs:element name="codrol" type="xs:int" />
+<xs:element name="codusuario" type="xs:int" />
+<xs:element name="contraseña" type="xs:string" minOccurs="0" />
+<xs:element name="direccion" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="fechanac" type="xs:string" minOccurs="0" />
+<xs:element name="nickname" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="telefono" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="gestionarmoderador">
+<xs:sequence>
+<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="gestionarmoderadorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarcomentario">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarcomentarioResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="ingresarModerador">
+<xs:sequence>
+<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
+<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
+<xs:element name="fecha" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingresarModeradorResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="consultaIniciativasPublicadas">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="consultaIniciativasPublicadasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:iniciativa" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarmoderadoriniciativa">
+<xs:sequence>
+<xs:element name="codusuario" type="xs:string" minOccurs="0" />
+<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarmoderadoriniciativaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="ingresarIniciativa">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="meta" type="xs:string" minOccurs="0" />
+<xs:element name="tiempo" type="xs:string" minOccurs="0" />
+<xs:element name="cod_categoria" type="xs:string" minOccurs="0" />
+<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingresarIniciativaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="actualizarUsuario">
+<xs:sequence>
+<xs:element name="contrasena" type="xs:string" minOccurs="0" />
+<xs:element name="direccion" type="xs:string" minOccurs="0" />
+<xs:element name="telefono" type="xs:string" minOccurs="0" />
+<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarUsuarioResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="busquedainiciativa">
+<xs:sequence>
+<xs:element name="clave" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="busquedainiciativaResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:iniciativa" minOccurs="0" maxOccurs="unbounded" />
 </xs:sequence>
