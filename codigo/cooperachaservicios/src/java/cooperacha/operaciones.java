@@ -71,17 +71,18 @@ public class operaciones {
         String valido="valido";
         String invalido="invalido";
         String cod_usuario=null;
-        String[] listadatos=new String[2];
+        String cod_rol=null;
+        String[] listadatos=new String[3];
         Usuario usuario = new Usuario();
                 try{
                 conexiones con=new conexiones();
                 con.conectar();
-                rs=con.consultar(String.format("select nickname, contraseña, cod_usuario from Usuario where nickname='%s'", nickname));
+                rs=con.consultar(String.format("select nickname, contraseña, cod_usuario, cod_rol from Usuario where nickname='%s'", nickname));
                  while(rs.next()){
                      usuario.setNickname(rs.getString("nickname"));
                      usuario.setContraseña(rs.getString("contraseña"));
                      cod_usuario=String.valueOf(rs.getInt("cod_usuario"));
-                     
+                     cod_rol=String.valueOf(rs.getInt("cod_rol"));
                  }
                 
             }catch(Exception e){
@@ -90,6 +91,7 @@ public class operaciones {
         if((nickname.equals(usuario.getNickname()))&&(contrasena.equals(usuario.getContraseña()))){
              listadatos[0]=valido;
              listadatos[1]=cod_usuario;
+             listadatos[2]=cod_rol;
         }else{
             listadatos[0]=invalido;
         }
@@ -578,6 +580,51 @@ public class operaciones {
             }
             
             return listac;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "cargarCategoria")
+    public void cargarCategoria(@WebParam(name = "archivo") String archivo) {
+         String instruccion = String.format("copy categorias from 'C:\\subidos\\%s' USING delimiters ',' ;",archivo);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "actualizarRecompensa")
+    public void actualizarRecompensa(@WebParam(name = "codigo") String codigo) {
+         String instruccion = String.format("update Recompensa set cod_iniciativa=%s where cod_iniciativa is null;",codigo);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "cargarRecompensa")
+    public void cargarRecompensa(@WebParam(name = "archivo") String archivo) {
+        String instruccion = String.format("copy Recompensa (nombre,descripcion,precio_unidad,stock) from 'C:\\subidos\\%s' USING delimiters ',' ;",archivo);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
     }
 
 
