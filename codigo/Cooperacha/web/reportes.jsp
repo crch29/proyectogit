@@ -1,21 +1,33 @@
 <%-- 
     Document   : reportes
-    Created on : 3/07/2016, 03:33:54 PM
+    Created on : 6/07/2016, 10:24:35 AM
     Author     : carlosrene
 --%>
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <a href="reporte1.jsp">avanzar</a>
-          <script src="js/jquery.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    </body>
-    
-</html>
+<%@page import="net.sf.jasperreports.engine.*" %>
+<%@page import="java.io.*" %>
+<%@page import="java.util.*" %>
+<%@page import="clases.*" %>
+<%@page import="javax.servlet.ServletResponse" %>
+<%@page import="net.sf.jasperreports.view.JasperViewer" %>
+<%@page import="java.sql.*" %>
+
+<%
+            Connection cone = null;
+            Class.forName("org.postgresql.Driver").newInstance();
+            cone = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cooperachadb", "postgres", "112016f2"); 
+            File reporte= new File(application.getRealPath("//reportes//usuarios.jasper"));
+            Map parameters= new HashMap();
+           
+            
+            byte[] bytes=JasperRunManager.runReportToPdf(reporte.getPath(), parameters, cone);
+            response.setContentType("application/pdf");
+            response.setContentLength(bytes.length);
+            ServletOutputStream outputstream= response.getOutputStream();
+            outputstream.write(bytes,0,bytes.length);
+            outputstream.flush();
+            outputstream.close();
+        %>
+

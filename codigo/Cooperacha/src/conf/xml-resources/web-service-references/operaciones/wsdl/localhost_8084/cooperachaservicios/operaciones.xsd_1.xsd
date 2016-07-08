@@ -8,6 +8,10 @@
 
 <xs:element name="actualizarIniciativaResponse" type="tns:actualizarIniciativaResponse" />
 
+<xs:element name="actualizarRecompensa" type="tns:actualizarRecompensa" />
+
+<xs:element name="actualizarRecompensaResponse" type="tns:actualizarRecompensaResponse" />
+
 <xs:element name="actualizarUsuario" type="tns:actualizarUsuario" />
 
 <xs:element name="actualizarUsuarioResponse" type="tns:actualizarUsuarioResponse" />
@@ -19,6 +23,14 @@
 <xs:element name="busquedainiciativa" type="tns:busquedainiciativa" />
 
 <xs:element name="busquedainiciativaResponse" type="tns:busquedainiciativaResponse" />
+
+<xs:element name="cargarCategoria" type="tns:cargarCategoria" />
+
+<xs:element name="cargarCategoriaResponse" type="tns:cargarCategoriaResponse" />
+
+<xs:element name="cargarRecompensa" type="tns:cargarRecompensa" />
+
+<xs:element name="cargarRecompensaResponse" type="tns:cargarRecompensaResponse" />
 
 <xs:element name="consultaIniciativasPublicadas" type="tns:consultaIniciativasPublicadas" />
 
@@ -172,13 +184,13 @@
 <xs:sequence />
 </xs:complexType>
 
-<xs:complexType name="eliminarIniciativaborrador">
+<xs:complexType name="cargarCategoria">
 <xs:sequence>
-<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
+<xs:element name="archivo" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="eliminarIniciativaborradorResponse">
+<xs:complexType name="cargarCategoriaResponse">
 <xs:sequence />
 </xs:complexType>
 
@@ -203,6 +215,16 @@
 <xs:element name="estado" type="xs:string" minOccurs="0" />
 <xs:element name="fecha" type="xs:string" minOccurs="0" />
 </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarIniciativaborrador">
+<xs:sequence>
+<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarIniciativaborradorResponse">
+<xs:sequence />
 </xs:complexType>
 
 <xs:complexType name="consultarIniciativa">
@@ -280,18 +302,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="consultareliminarborrador">
-<xs:sequence>
-<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="consultareliminarborradorResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:iniciativa" minOccurs="0" maxOccurs="unbounded" />
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="ingresarRecompensa">
 <xs:sequence>
 <xs:element name="stock" type="xs:string" minOccurs="0" />
@@ -304,6 +314,18 @@
 
 <xs:complexType name="ingresarRecompensaResponse">
 <xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="consultareliminarborrador">
+<xs:sequence>
+<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultareliminarborradorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:iniciativa" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="obtenerfecha">
@@ -438,6 +460,16 @@
 <xs:sequence />
 </xs:complexType>
 
+<xs:complexType name="cargarRecompensa">
+<xs:sequence>
+<xs:element name="archivo" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cargarRecompensaResponse">
+<xs:sequence />
+</xs:complexType>
+
 <xs:complexType name="actualizarUsuario">
 <xs:sequence>
 <xs:element name="contrasena" type="xs:string" minOccurs="0" />
@@ -461,6 +493,16 @@
 <xs:sequence>
 <xs:element name="return" type="tns:iniciativa" minOccurs="0" maxOccurs="unbounded" />
 </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarRecompensa">
+<xs:sequence>
+<xs:element name="codigo" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarRecompensaResponse">
+<xs:sequence />
 </xs:complexType>
 
 <xs:complexType name="ingresarIniciativaborrador">

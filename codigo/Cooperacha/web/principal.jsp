@@ -60,7 +60,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a href="crearRecompensa.jsp">ingresar recompensa</a></li>
-                    
+                    <li><a href="cargarRecompensa.jsp">Cargar Recompensas</a></li>
                      
                 </ul>
                 </li> 
@@ -71,6 +71,7 @@
                 <ul class="dropdown-menu">
                      <li><a href="asignarModerador.jsp">asignar moderador</a></li>
                     <li><a href="mantenerModerador.jsp">Gestionar Moderador</a></li>
+                    <li><a href="reportes.jsp">Gestionar Moderador</a></li>
                      
                 </ul>
                 </li> 
@@ -81,16 +82,31 @@
                 <ul class="dropdown-menu">
                     
                     <li><a href="modificarUsuario.jsp">Modificar Usuario</a></li>
+                    
+                </ul>
+                </li> 
+                <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                     Panel Administrativo<b></b>
+                </a>
+                <ul class="dropdown-menu">
                      
+                     <%
+                        HttpSession s= request.getSession();
+                    String codigo=(String)s.getAttribute("cod_usuario");
+                    String nick=(String)s.getAttribute("nickname");
+                    String cod=(String)s.getAttribute("cod_rol");
+                    int cod_rol=Integer.parseInt(cod);
+                        if(cod_rol==1){
+                            %><li><a href="CargaCategoria.jsp">Cargar Categorias</a></li><%
+                        }
+                    
+                    %>
                 </ul>
                 </li> 
                 <li><a href="index.jsp">Salir</a></li>
                 
-                <%
-                    HttpSession s= request.getSession();
-                    String codigo=(String)s.getAttribute("cod_usuario");
-                    
-%><input type="text" name="saludo" placeholder="<%=codigo%>">
+  <input type="text" name="saludo" placeholder="<%=nick%>">
                 
                </ul>
         </div>

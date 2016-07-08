@@ -60,8 +60,8 @@
 	cooperacha.Operaciones_Service service = new cooperacha.Operaciones_Service();
 	cooperacha.Operaciones port = service.getOperacionesPort();
 	 // TODO initialize WS operation arguments here
-	java.lang.String tabla = "Categoria";
-	java.lang.String campo = "cod_categoria";
+	java.lang.String tabla = "subcategoria";
+	java.lang.String campo = "cod_subcategoria";
 
 	// TODO process result here
 	java.util.List<java.lang.Object> result = port.consultarListas(tabla, campo);

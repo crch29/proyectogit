@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package clases;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 
 /**
  *
@@ -14,14 +12,14 @@ import java.sql.DriverManager;
  */
 public class conexionn {
     
-    public Connection getconexion(){
-         Connection conexion=null;
+    public Connection obtenerconexion(){
+        Connection cone=null;
         try{
             Class.forName("org.postgresql.Driver");
-            conexion = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cooperachadb", "postgres", "112016f2"); 
+             cone = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cooperachadb", "postgres", "112016f2"); 
         }catch(Exception e){
-            e.printStackTrace();
+        
         }
-        return conexion;
+        return cone;
     }
 }
