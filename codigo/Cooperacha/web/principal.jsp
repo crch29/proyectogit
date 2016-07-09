@@ -104,6 +104,17 @@
                     %>
                 </ul>
                 </li> 
+                 <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                     Reportes Administrativos <b></b>
+                </a>
+                <ul class="dropdown-menu">
+                     <li><a href="porSubcategoria.jsp">reporte por sub-categoria</a></li>
+                     <li><a href="porCategoria.jsp">reporte por categoria</a></li>
+                     <li><a href="recaudacionSubcategoria.jsp">recaudacion por subcategoria</a></li>
+                     <li><a href="recaudacionCategoria.jsp">recaudacion por categoria</a></li>
+                </ul>
+                </li> 
                 <li><a href="index.jsp">Salir</a></li>
                 
   <input type="text" name="saludo" placeholder="<%=nick%>">

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bdf4df85-17bb-4c84-82d4-243483ca0ca4">
+	<property name="ireport.zoom" value="0.9090909090909091"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select sum(d.monto) as recaudacion, trunc(avg(i.monto),2) as promedio, max(d.monto) as maxima, min(d.monto) as minima, s.nombre from iniciativa as i join subcategoria as s on i.cod_subcategoria=s.cod_subcategoria join donacion as d on i.cod_iniciativa=d.cod_iniciativa  group by s.nombre;]]>
+	</queryString>
+	<field name="recaudacion" class="java.math.BigDecimal"/>
+	<field name="promedio" class="java.math.BigDecimal"/>
+	<field name="maxima" class="java.math.BigDecimal"/>
+	<field name="minima" class="java.math.BigDecimal"/>
+	<field name="nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="43" width="538" height="36" forecolor="#999999" uuid="cb10693a-5ce4-4a02-bdd4-91f25488b5d1"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[RECAUDACION POR SUBCATEGORIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="0" width="199" height="43" forecolor="#CCCCCC" uuid="67fd4144-66e0-4793-afd7-05f124802bee"/>
+				<textElement>
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COOPERACHA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="236" splitType="Stretch">
+			<pie3DChart>
+				<chart>
+					<reportElement x="48" y="20" width="409" height="194" uuid="194c7415-835c-4e07-ad60-dcc8c29f384c"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{nombre}]]></keyExpression>
+					<valueExpression><![CDATA[$F{recaudacion}]]></valueExpression>
+					<labelExpression><![CDATA[$F{nombre}]]></labelExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</summary>
+</jasperReport>

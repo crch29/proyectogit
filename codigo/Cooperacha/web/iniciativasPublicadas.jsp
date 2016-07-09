@@ -69,7 +69,7 @@
                             String estado= iniciativa.getEstado();
                             String meta = String.valueOf(iniciativa.getMeta());
                             String monto= String.valueOf(iniciativa.getMonto());
-                            String porcentaje="20.00";
+                            String porcentaje=String.valueOf(iniciativa.getPorcentaje());
                             
               %><tr>
                  

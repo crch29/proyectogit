@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="67bcdb1b-2602-4793-af87-1f923114b89f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select sum(d.monto) as recaudacion, trunc(avg(d.monto),2) as promedio, max(d.monto) as maxima, min(d.monto) as minima, c.nombre from iniciativa as i join subcategoria as s on i.cod_subcategoria=s.cod_subcategoria join categoria as c on s.cod_categoria=c.cod_categoria join donacion as d on d.cod_iniciativa=i.cod_iniciativa group by c.nombre;]]>
+	</queryString>
+	<field name="recaudacion" class="java.math.BigDecimal"/>
+	<field name="promedio" class="java.math.BigDecimal"/>
+	<field name="maxima" class="java.math.BigDecimal"/>
+	<field name="minima" class="java.math.BigDecimal"/>
+	<field name="nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="23" width="303" height="28" forecolor="#999999" uuid="c551ff3e-5655-4e78-bc74-e9e5eee56e07"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[RECAUDACION POR CATEGORIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="0" width="183" height="37" forecolor="#CCCCCC" uuid="fa7683b4-3c73-4352-974a-efd599c9d0cb"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COOPERACHA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="300" splitType="Stretch">
+			<pie3DChart>
+				<chart>
+					<reportElement x="49" y="38" width="447" height="230" uuid="c7b1a6e1-8530-4335-966c-086e57dacc82"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{nombre}]]></keyExpression>
+					<valueExpression><![CDATA[$F{recaudacion}]]></valueExpression>
+					<labelExpression><![CDATA[$F{nombre}]]></labelExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</summary>
+</jasperReport>
