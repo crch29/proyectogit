@@ -53,7 +53,7 @@ public class operaciones {
      */
     @WebMethod(operationName = "ingresarIniciativa")
     public void ingresarIniciativa(@WebParam(name = "nombre") String nombre, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "meta") String meta, @WebParam(name = "tiempo") String tiempo, @WebParam(name = "cod_categoria") String cod_categoria, @WebParam(name = "cod_usuario") String cod_usuario) {
-        String instruccion = String.format("insert into Iniciativa(nombre,descripcion,tiempo,cod_categoria,cod_usuario,meta) values('%s','%s','%s',%s,%s,%s);",nombre,descripcion,tiempo,cod_categoria,cod_usuario,meta);
+        String instruccion = String.format("insert into Iniciativa(nombre,descripcion,tiempo,cod_subcategoria,cod_usuario,meta) values('%s','%s','%s',%s,%s,%s);",nombre,descripcion,tiempo,cod_categoria,cod_usuario,meta);
         try{
             conexiones con= new conexiones();
             con.agregar(instruccion);
@@ -115,7 +115,7 @@ public class operaciones {
               iniciativa.setNombre(rs.getString("nombre"));
               iniciativa.setDescripcion(rs.getString("descripcion"));
               iniciativa.setTiempo(rs.getString("tiempo"));
-              iniciativa.setCodcategoria(rs.getInt("cod_categoria"));
+              iniciativa.setCodsubcategoria(rs.getInt("cod_subcategoria"));
               iniciativa.setCodusuario(rs.getInt("cod_usuario"));
               iniciativa.setEstado(rs.getString("estado"));
               iniciativa.setMeta(rs.getDouble("meta"));
@@ -145,12 +145,12 @@ public class operaciones {
               iniciativa.setNombre(rs.getString("nombre"));
               iniciativa.setDescripcion(rs.getString("descripcion"));
               iniciativa.setTiempo(rs.getString("tiempo"));
-              iniciativa.setCodcategoria(rs.getInt("cod_categoria"));
+              iniciativa.setCodsubcategoria(rs.getInt("cod_subcategoria"));
               iniciativa.setCodusuario(rs.getInt("cod_usuario"));
               iniciativa.setEstado(rs.getString("estado"));
               iniciativa.setMeta(rs.getDouble("meta"));
               iniciativa.setMonto(rs.getDouble("monto"));
-              listai.add(iniciativa);
+                listai.add(iniciativa);
             }
             }catch(Exception e){
                  
@@ -175,7 +175,7 @@ public class operaciones {
               iniciativa.setNombre(rs.getString("nombre"));
               iniciativa.setDescripcion(rs.getString("descripcion"));
               iniciativa.setTiempo(rs.getString("tiempo"));
-              iniciativa.setCodcategoria(rs.getInt("cod_categoria"));
+              iniciativa.setCodsubcategoria(rs.getInt("cod_subcategoria"));
               iniciativa.setCodusuario(rs.getInt("cod_usuario"));
               iniciativa.setEstado(rs.getString("estado"));
               iniciativa.setMeta(rs.getDouble("meta"));
@@ -251,8 +251,8 @@ public class operaciones {
      * metodo que se utiliza para iniciativa creacion
      */
     @WebMethod(operationName = "ingresarIniciativaborrador")
-    public void ingresarIniciativaborrador(@WebParam(name = "nombre") String nombre, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "tiempo") String tiempo, @WebParam(name = "cod_categoria") String cod_categoria, @WebParam(name = "cod_usuario") String cod_usuario, @WebParam(name = "meta") String meta, @WebParam(name = "estado") String estado) {
-         String instruccion = String.format("insert into Iniciativa(nombre,descripcion,tiempo,cod_categoria,cod_usuario,meta,estado) values('%s','%s','%s',%s,%s,%s,'%s');",nombre,descripcion,tiempo,cod_categoria,cod_usuario,meta,estado);
+    public void ingresarIniciativaborrador(@WebParam(name = "nombre") String nombre, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "tiempo") String tiempo, @WebParam(name = "cod_subcategoria") String cod_subcategoria, @WebParam(name = "cod_usuario") String cod_usuario, @WebParam(name = "meta") String meta, @WebParam(name = "estado") String estado) {
+         String instruccion = String.format("insert into Iniciativa(nombre,descripcion,tiempo,cod_subcategoria,cod_usuario,meta,estado) values('%s','%s','%s',%s,%s,%s,'%s');",nombre,descripcion,tiempo,cod_subcategoria,cod_usuario,meta,estado);
         try{
             conexiones con= new conexiones();
             con.agregar(instruccion);
@@ -318,7 +318,7 @@ public class operaciones {
               iniciativa.setNombre(rs.getString("nombre"));
               iniciativa.setDescripcion(rs.getString("descripcion"));
               iniciativa.setTiempo(rs.getString("tiempo"));
-              iniciativa.setCodcategoria(rs.getInt("cod_categoria"));
+              iniciativa.setCodsubcategoria(rs.getInt("cod_subcategoria"));
               iniciativa.setCodusuario(rs.getInt("cod_usuario"));
               iniciativa.setEstado(rs.getString("estado"));
               iniciativa.setMeta(rs.getDouble("meta"));
@@ -363,7 +363,7 @@ public class operaciones {
               iniciativa.setNombre(rs.getString("nombre"));
               iniciativa.setDescripcion(rs.getString("descripcion"));
               iniciativa.setTiempo(rs.getString("tiempo"));
-              iniciativa.setCodcategoria(rs.getInt("cod_categoria"));
+              iniciativa.setCodsubcategoria(rs.getInt("cod_subcategoria"));
               iniciativa.setCodusuario(rs.getInt("cod_usuario"));
               iniciativa.setEstado(rs.getString("estado"));
               iniciativa.setMeta(rs.getDouble("meta"));
@@ -617,7 +617,7 @@ public class operaciones {
      */
     @WebMethod(operationName = "cargarRecompensa")
     public void cargarRecompensa(@WebParam(name = "archivo") String archivo) {
-        String instruccion = String.format("copy Recompensa (nombre,descripcion,precio_unidad,stock) from 'C:\\subidos\\%s' USING delimiters ',' ;",archivo);
+        String instruccion = String.format("COPY Recompensa (nombre,descripcion,precio_unidad,stock) from 'C:\\subidos\\%s' USING DELIMITERS ',';",archivo);
         try{
             conexiones con= new conexiones();
             con.agregar(instruccion);

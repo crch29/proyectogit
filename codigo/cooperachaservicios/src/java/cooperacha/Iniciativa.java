@@ -12,8 +12,8 @@ package cooperacha;
 public class Iniciativa {
     
     private String nombre,descripcion,tiempo,estado;
-    private int cod_iniciativa,cod_categoria,cod_usuario;
-    private double meta,monto;
+    private int cod_iniciativa,cod_subcategoria,cod_usuario;
+    private double meta,monto,porcentaje;
     
     //setters
     public void setCodiniciativa(int cod){
@@ -32,8 +32,8 @@ public class Iniciativa {
         tiempo=tiem;
     }
     
-    public void setCodcategoria(int cat){
-        cod_categoria=cat;
+    public void setCodsubcategoria(int cat){
+        cod_subcategoria=cat;
     }
     
     public void setCodusuario(int usu){
@@ -50,6 +50,10 @@ public class Iniciativa {
     
     public void setMonto(double mon){
         monto=mon;
+    }
+    
+    public void setPorcentaje(double por){
+        porcentaje=por;
     }
     
     //getters
@@ -70,8 +74,8 @@ public class Iniciativa {
         return tiempo;
     }
     
-    public int getCodcategoria(){
-        return cod_categoria;
+    public int getCodsubcategoria(){
+        return cod_subcategoria;
     }
     
     public int getCodusuario(){
@@ -90,5 +94,8 @@ public class Iniciativa {
         return monto;
     }
     
+    public double getPorcentaje(){
+        return porcentaje;
+    }
     
 }
