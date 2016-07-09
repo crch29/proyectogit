@@ -45,7 +45,7 @@
               
               <table class="table table-striped table-bordered table-condensed">
                   		<tr>
-                                    <td>nombre</td><td>meta</td><td>monto alcanzado</td><td>mostrar</td>
+                                    <td>nombre</td><td>meta</td><td>monto alcanzado</td><td>Porcentaje</td><td>mostrar</td>
                   		</tr>
               
               <%
@@ -64,16 +64,16 @@
                             String nombre= iniciativa.getNombre();
                             String descripcion= iniciativa.getDescripcion();
                             String tiempo= iniciativa.getTiempo();
-                            String cod_categoria= String.valueOf(iniciativa.getCodcategoria());
+                            String cod_subcategoria= String.valueOf(iniciativa.getCodsubcategoria());
                             String cod_usuario= String.valueOf(iniciativa.getCodusuario());
                             String estado= iniciativa.getEstado();
                             String meta = String.valueOf(iniciativa.getMeta());
                             String monto= String.valueOf(iniciativa.getMonto());
-                            
+                            String porcentaje="20.00";
                             
               %><tr>
                  
-                  <td><%=nombre%></td><td><%=meta%></td><td><%=monto%></td><td><button class="form-control btn btn-primary" type="submit" value="<%=cod_iniciativa%>" name="<%=cod_iniciativa%>">ver</button></td>
+                  <td><%=nombre%></td><td><%=meta%></td><td><%=monto%></td><td><%=porcentaje%></td><td><button class="form-control btn btn-primary" type="submit" value="<%=cod_iniciativa%>" name="<%=cod_iniciativa%>">ver</button></td>
                </tr><%
                         String clave=request.getParameter(String.valueOf(cod_iniciativa));
                         if(clave!=null){

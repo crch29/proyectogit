@@ -65,7 +65,7 @@
                             String nombre= iniciativa.getNombre();
                             String descripcion= iniciativa.getDescripcion();
                             String tiempo= iniciativa.getTiempo();
-                            String cod_categoria= String.valueOf(iniciativa.getCodcategoria());
+                            String cod_categoria= String.valueOf(iniciativa.getCodsubcategoria());
                             String estado= iniciativa.getEstado();
                             String meta = String.valueOf(iniciativa.getMeta());
                             String monto= String.valueOf(iniciativa.getMonto());

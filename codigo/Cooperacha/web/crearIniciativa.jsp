@@ -66,7 +66,7 @@
 	// TODO process result here
 	java.util.List<java.lang.Object> result = port.consultarListas(tabla, campo);
         
-        %> <select name="categoria" class="form-group"><%
+        %> <select name="subcategoria" class="form-group"><%
             for(int i=0;i<result.size();i++){
                 %><option><%=result.get(i)%></option><%
             }
@@ -96,7 +96,7 @@
         String descripcion = request.getParameter("descripcion");
         String meta = request.getParameter("meta");
         String tiempo = request.getParameter("tiempo");
-        String categoria = request.getParameter("categoria");
+        String subcategoria = request.getParameter("subcategoria");
         HttpSession s = request.getSession();
         String cod_usuario=(String)s.getAttribute("cod_usuario");
         String estado= request.getParameter("estado");
@@ -107,7 +107,7 @@
 	 if(estado.equals("borrador")){
              estad="false";
          }
-         port.ingresarIniciativaborrador(nombre, descripcion, tiempo, categoria, cod_usuario, meta, estad);
+         port.ingresarIniciativaborrador(nombre, descripcion, tiempo, subcategoria, cod_usuario, meta, estad);
     }catch (Exception ex) {
 	// TODO handle custom exceptions here
     }}

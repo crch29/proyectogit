@@ -42,7 +42,7 @@
            
            
         
-           <form  enctype="multipart/form-data" method="post">
+           <form  action="cargarRecompensaII.jsp" enctype="multipart/form-data" method="post">
                     <div class="text-center container">
                <h1>CARGAR SUBCATEGORIAS</h1> 
                <div class="form-group text-center container">
@@ -81,9 +81,9 @@
                                         try {
                                             cooperacha.Operaciones_Service service = new cooperacha.Operaciones_Service();
                                             cooperacha.Operaciones port = service.getOperacionesPort();
-                                             // TODO initialize WS operation arguments here
-
-                                            port.cargarCategoria(nombrearchivo);
+                                             
+                                            port.cargarRecompensa(nombrearchivo);
+                                            port.actualizarRecompensa(codigo);
                                         } catch (Exception ex) {
                                             out.println("ARCHIVO TIENE SUBCATEGORIAS REPETIDAS");
                                         }

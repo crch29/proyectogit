@@ -241,14 +241,15 @@
 
 <xs:complexType name="iniciativa">
 <xs:sequence>
-<xs:element name="codcategoria" type="xs:int" />
 <xs:element name="codiniciativa" type="xs:int" />
+<xs:element name="codsubcategoria" type="xs:int" />
 <xs:element name="codusuario" type="xs:int" />
 <xs:element name="descripcion" type="xs:string" minOccurs="0" />
 <xs:element name="estado" type="xs:string" minOccurs="0" />
 <xs:element name="meta" type="xs:double" />
 <xs:element name="monto" type="xs:double" />
 <xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="porcentaje" type="xs:double" />
 <xs:element name="tiempo" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
@@ -510,7 +511,7 @@
 <xs:element name="nombre" type="xs:string" minOccurs="0" />
 <xs:element name="descripcion" type="xs:string" minOccurs="0" />
 <xs:element name="tiempo" type="xs:string" minOccurs="0" />
-<xs:element name="cod_categoria" type="xs:string" minOccurs="0" />
+<xs:element name="cod_subcategoria" type="xs:string" minOccurs="0" />
 <xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
 <xs:element name="meta" type="xs:string" minOccurs="0" />
 <xs:element name="estado" type="xs:string" minOccurs="0" />
