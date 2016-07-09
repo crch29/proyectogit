@@ -104,6 +104,8 @@
                     %>
                 </ul>
                 </li> 
+                <% 
+                    if(cod_rol==1){%>
                  <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
                      Reportes Administrativos <b></b>
@@ -113,8 +115,10 @@
                      <li><a href="porCategoria.jsp">reporte por categoria</a></li>
                      <li><a href="recaudacionSubcategoria.jsp">recaudacion por subcategoria</a></li>
                      <li><a href="recaudacionCategoria.jsp">recaudacion por categoria</a></li>
+                     <li><a href="donacionesporIniciativa.jsp">Donaciones por Iniciativa</a></li>
+                     <li><a href="topiniciativasporusuarios.jsp">top 5 iniciativas por usuario</a></li>
                 </ul>
-                </li> 
+                </li><%}%>
                 <li><a href="index.jsp">Salir</a></li>
                 
   <input type="text" name="saludo" placeholder="<%=nick%>">
