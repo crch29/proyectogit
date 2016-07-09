@@ -138,7 +138,7 @@ public class operaciones {
             try{
                 conexiones con=new conexiones();
                 con.conectar();
-                rs=con.consultar("select * from Iniciativa where estado='true';");
+                rs=con.consultar("select *, trunc((monto*100)/meta,2) as Porcentaje from Iniciativa where estado='true';");
                  while(rs.next()){
               Iniciativa iniciativa=new Iniciativa();
               iniciativa.setCodiniciativa(rs.getInt("cod_iniciativa"));
@@ -150,6 +150,7 @@ public class operaciones {
               iniciativa.setEstado(rs.getString("estado"));
               iniciativa.setMeta(rs.getDouble("meta"));
               iniciativa.setMonto(rs.getDouble("monto"));
+              iniciativa.setPorcentaje(rs.getDouble("Porcentaje"));
                 listai.add(iniciativa);
             }
             }catch(Exception e){
