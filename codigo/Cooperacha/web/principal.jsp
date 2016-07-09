@@ -117,6 +117,7 @@
                      <li><a href="recaudacionCategoria.jsp">recaudacion por categoria</a></li>
                      <li><a href="donacionesporIniciativa.jsp">Donaciones por Iniciativa</a></li>
                      <li><a href="topiniciativasporusuarios.jsp">top 5 iniciativas por usuario</a></li>
+                     <li><a href="topDonadores.jsp">top donadores</a></li>
                 </ul>
                 </li><%}%>
                 <li><a href="index.jsp">Salir</a></li>
