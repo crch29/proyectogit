@@ -628,6 +628,21 @@ public class operaciones {
         }
     }
 
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "denunciaComentario")
+    public void denunciaComentario(@WebParam(name = "cod_iniciativa") String cod_iniciativa, @WebParam(name = "cod_comentario") String cod_comentario, @WebParam(name = "cod_usuario") String cod_usuario) {
+         String instruccion = String.format("insert into Denuncia(descripcion,cod_iniciativa,cod_usuario,cod_comentario) values('sin descripcion',%s,%s,%s);",cod_iniciativa,cod_usuario,cod_comentario);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
 
 
    
