@@ -1,6 +1,6 @@
 <%-- 
-    Document   : eliminarcomentarioII
-    Created on : 1/07/2016, 10:10:38 AM
+    Document   : denunciarComentarioII
+    Created on : 9/07/2016, 08:33:14 AM
     Author     : carlosrene
 --%>
 
@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         
-        <title>Eliminar Comentario</title>
+        <title>Denuncia Comentario</title>
     </head>
        <body background="startup-1.jpg">
                 
@@ -36,7 +36,7 @@
            
            
         
-           <form name="iniciativa" role="form" action="eliminarcomentarioII.jsp">
+           <form name="iniciativa" role="form" action="denunciarComentarioII.jsp">
          <div class="text-center container">
           <h1>COMENTARIOS EN INICIATIVA</h1> 
           <div class="form-group">
@@ -54,8 +54,8 @@
                         String cod_iniciativa=(String)s.getAttribute("codigo");
                       java.util.ArrayList<String> codigos= new java.util.ArrayList<String>();
                     try {
-                        cooperacha.Operaciones_Service service = new cooperacha.Operaciones_Service();
-                        cooperacha.Operaciones port = service.getOperacionesPort();
+                         cooperacha.Operaciones_Service service = new cooperacha.Operaciones_Service();
+                         cooperacha.Operaciones port = service.getOperacionesPort();
                         
                         java.util.List<cooperacha.Comentario> result = port.buscarcomentario(cod_iniciativa);
                         for(int i=0;i<result.size();i++){
@@ -67,18 +67,18 @@
                             String cod_comentario= String.valueOf(comentario.getCodComentario());
               %><tr>
                  
-                  <td><%=fecha%></td><td><%=descripcion%></td><td><%=cod_usuario%></td><td><button class="form-control btn btn-primary" type="submit" value="<%=cod_comentario%>" name="<%=cod_comentario%>">Borrar</button></td>
+                  <td><%=fecha%></td><td><%=descripcion%></td><td><%=cod_usuario%></td><td><button class="form-control btn btn-primary" type="submit" value="<%=cod_comentario%>" name="<%=cod_comentario%>">Denunciar</button></td>
                </tr><%
-                        String clave=request.getParameter(String.valueOf(cod_comentario));
-                        if(clave!=null){
-                           port.eliminarcomentario(clave);
+                        String claves=request.getParameter(String.valueOf(cod_comentario));
+                        if(claves!=null){
+                           
+                            port.denunciaComentario(cod_iniciativa,claves,cod_usuario);
                         }
                         }
                     }catch (Exception ex) {
                         // TODO handle custom exceptions here
                     }
-                  
-    %>
+        %>
               </table>
           </div>
          </div>
@@ -89,16 +89,3 @@
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
        </body>
 </html>
-                        
-                        
-              
-              
-              
-              
-             
-   
-
-                  
-                  
-                            
-                        

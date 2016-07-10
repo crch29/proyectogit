@@ -55,7 +55,7 @@
                 
                     HttpSession s=request.getSession();
                     String cod_iniciativa=(String)s.getAttribute("codigo");
-                    String cod_usuario=(String)s.getAttribute("cod_usuario");
+                    String codusuario=(String)s.getAttribute("cod_usuario");
                     String comentario = request.getParameter("comentario");
                     
                     if(comentario!=null){
@@ -68,7 +68,7 @@
 	cooperacha.Operaciones port = service.getOperacionesPort();
         String fecha= port.obtenerfecha();
 	 
-	port.ingresarcomentario(comentario, fecha, cod_usuario, cod_iniciativa);
+	port.ingresarcomentario(comentario,fecha,codusuario,cod_iniciativa);
 	
     } catch (Exception ex) {
 	// TODO handle custom exceptions here

@@ -50,7 +50,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="generarcomentario.jsp">Comentar</a></li>
                     <li><a href="eliminarcomentario.jsp">eliminar comentario</a></li>
-                    
+                    <li><a href="denunciarComentario.jsp">denunciar comentario</a></li>
                      
                 </ul>
                 </li> 

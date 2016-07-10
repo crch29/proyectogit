@@ -17,7 +17,7 @@
             Connection cone = null;
             Class.forName("org.postgresql.Driver").newInstance();
             cone = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cooperachadb", "postgres", "112016f2"); 
-            File reporte= new File(application.getRealPath("//reportes//porSubcategoria.jasper"));
+            File reporte= new File(application.getRealPath("//reportes//porsubcategoria.jasper"));
             Map parameters= new HashMap();
            
             
