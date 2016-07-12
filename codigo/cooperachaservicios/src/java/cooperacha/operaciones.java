@@ -313,7 +313,7 @@ public class operaciones {
             try{
                 conexiones con=new conexiones();
                 con.conectar();
-                rs=con.consultar(String.format("select * from Iniciativa where cod_usuario=%s;", cod_usuario));
+                rs=con.consultar(String.format("select *, trunc((monto*100)/meta,2) as Porcentaje from Iniciativa where cod_usuario=%s and estado='true';", cod_usuario));
                  while(rs.next()){
               Iniciativa iniciativa=new Iniciativa();
               iniciativa.setCodiniciativa(rs.getInt("cod_iniciativa"));
@@ -325,6 +325,7 @@ public class operaciones {
               iniciativa.setEstado(rs.getString("estado"));
               iniciativa.setMeta(rs.getDouble("meta"));
               iniciativa.setMonto(rs.getDouble("monto"));
+              iniciativa.setPorcentaje(rs.getDouble("Porcentaje"));
               listai.add(iniciativa);
             }
             }catch(Exception e){
@@ -740,6 +741,21 @@ public class operaciones {
     @WebMethod(operationName = "denunciaIniciativa")
     public void denunciaIniciativa(@WebParam(name = "cod_iniciativa") String cod_iniciativa, @WebParam(name = "cod_usuario") String cod_usuario) {
        String instruccion = String.format("insert into Denuncia(descripcion,cod_iniciativa,cod_usuario) values('sin descripcion',%s,%s);",cod_iniciativa,cod_usuario);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "eliminarIniciativa")
+    public void eliminarIniciativa(@WebParam(name = "cod_iniciativa") String cod_iniciativa) {
+        String instruccion = String.format("delete from Iniciativa where cod_iniciativa=%s;",cod_iniciativa);
         try{
             conexiones con= new conexiones();
             con.agregar(instruccion);
