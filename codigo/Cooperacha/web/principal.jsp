@@ -26,7 +26,13 @@
             </button>
             <a href="#" class="navbar-brand">COOPERACHA</a>
         </div>
- 
+        <%
+                    HttpSession s= request.getSession();
+                    String codigo=(String)s.getAttribute("cod_usuario");
+                    String nick=(String)s.getAttribute("nickname");
+                    String cod=(String)s.getAttribute("cod_rol");
+                    int cod_rol=Integer.parseInt(cod);
+        %>
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                <li class="dropdown">
@@ -37,7 +43,7 @@
                     <li><a href="crearIniciativa.jsp">Crear Iniciativa/Borrador</a></li>
                     <li><a href="busquedaIniciativa.jsp">Buscar Iniciativa por nombre</a></li>
                     <li><a href="iniciativasPublicadas.jsp">Iniciativas publicadas en plataforma</a></li>
-                    
+                    <li><a href="denunciaIniciativa.jsp">Denunciar iniciativa</a></li>
                      <li><a href="eliminarBorrador.jsp">eliminar borrador</a></li>
                      <li><a href="publicarBorradorI.jsp">publicar borrador</a></li>
                      <li><a href="modificarIniciativaI.jsp">Modificar Iniciativa</a></li>
@@ -82,7 +88,10 @@
                 <ul class="dropdown-menu">
                     
                     <li><a href="modificarUsuario.jsp">Modificar Usuario</a></li>
-                    
+                    <%if(cod_rol==1){%>
+                    <li><a href="eliminarUsuario.jsp">Eliminar Usuarios</a></li>
+                    <li><a href="modificarUsuarios.jsp">Modificar Usuarios</a></li>
+                    <%}%>
                 </ul>
                 </li> 
                 <li class="dropdown">
@@ -92,13 +101,11 @@
                 <ul class="dropdown-menu">
                      
                      <%
-                        HttpSession s= request.getSession();
-                    String codigo=(String)s.getAttribute("cod_usuario");
-                    String nick=(String)s.getAttribute("nickname");
-                    String cod=(String)s.getAttribute("cod_rol");
-                    int cod_rol=Integer.parseInt(cod);
+                       
+                    
                         if(cod_rol==1){
-                            %><li><a href="CargaCategoria.jsp">Cargar Categorias</a></li><%
+                            %><li><a href="CargaCategoria.jsp">Cargar Categorias</a></li>
+                            <li><a href="definirPorcentaje.jsp">Modificar porcentaje Ganancia</a></li><%
                         }
                     
                     %>
@@ -115,6 +122,7 @@
                      <li><a href="porCategoria.jsp">reporte por categoria</a></li>
                      <li><a href="recaudacionSubcategoria.jsp">recaudacion por subcategoria</a></li>
                      <li><a href="recaudacionCategoria.jsp">recaudacion por categoria</a></li>
+                     <li><a href="montoReal.jsp">monto real ganancia</a></li>
                      <li><a href="donacionesporIniciativa.jsp">Donaciones por Iniciativa</a></li>
                      <li><a href="topiniciativasporusuarios.jsp">top 5 iniciativas por usuario</a></li>
                      <li><a href="topDonadores.jsp">top donadores</a></li>

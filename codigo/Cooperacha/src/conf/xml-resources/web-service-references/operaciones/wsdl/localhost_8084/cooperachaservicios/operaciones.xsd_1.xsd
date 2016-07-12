@@ -16,6 +16,10 @@
 
 <xs:element name="actualizarUsuarioResponse" type="tns:actualizarUsuarioResponse" />
 
+<xs:element name="actualizarUsuarios" type="tns:actualizarUsuarios" />
+
+<xs:element name="actualizarUsuariosResponse" type="tns:actualizarUsuariosResponse" />
+
 <xs:element name="buscarcomentario" type="tns:buscarcomentario" />
 
 <xs:element name="buscarcomentarioResponse" type="tns:buscarcomentarioResponse" />
@@ -52,9 +56,17 @@
 
 <xs:element name="consultarListasResponse" type="tns:consultarListasResponse" />
 
+<xs:element name="consultarPorcentaje" type="tns:consultarPorcentaje" />
+
+<xs:element name="consultarPorcentajeResponse" type="tns:consultarPorcentajeResponse" />
+
 <xs:element name="consultarUsuario" type="tns:consultarUsuario" />
 
 <xs:element name="consultarUsuarioResponse" type="tns:consultarUsuarioResponse" />
+
+<xs:element name="consultarUsuarios" type="tns:consultarUsuarios" />
+
+<xs:element name="consultarUsuariosResponse" type="tns:consultarUsuariosResponse" />
 
 <xs:element name="consultareliminarborrador" type="tns:consultareliminarborrador" />
 
@@ -64,13 +76,25 @@
 
 <xs:element name="crearusuarioResponse" type="tns:crearusuarioResponse" />
 
+<xs:element name="definirPorcentaje" type="tns:definirPorcentaje" />
+
+<xs:element name="definirPorcentajeResponse" type="tns:definirPorcentajeResponse" />
+
 <xs:element name="denunciaComentario" type="tns:denunciaComentario" />
 
 <xs:element name="denunciaComentarioResponse" type="tns:denunciaComentarioResponse" />
 
+<xs:element name="denunciaIniciativa" type="tns:denunciaIniciativa" />
+
+<xs:element name="denunciaIniciativaResponse" type="tns:denunciaIniciativaResponse" />
+
 <xs:element name="eliminarIniciativaborrador" type="tns:eliminarIniciativaborrador" />
 
 <xs:element name="eliminarIniciativaborradorResponse" type="tns:eliminarIniciativaborradorResponse" />
+
+<xs:element name="eliminarUsuario" type="tns:eliminarUsuario" />
+
+<xs:element name="eliminarUsuarioResponse" type="tns:eliminarUsuarioResponse" />
 
 <xs:element name="eliminarcomentario" type="tns:eliminarcomentario" />
 
@@ -355,6 +379,17 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="denunciaIniciativa">
+<xs:sequence>
+<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
+<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="denunciaIniciativaResponse">
+<xs:sequence />
+</xs:complexType>
+
 <xs:complexType name="denunciaComentario">
 <xs:sequence>
 <xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
@@ -414,6 +449,16 @@
 </xs:complexType>
 
 <xs:complexType name="gestionarmoderadorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultarUsuarios">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="consultarUsuariosResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded" />
 </xs:sequence>
@@ -519,6 +564,49 @@
 </xs:complexType>
 
 <xs:complexType name="actualizarRecompensaResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="eliminarUsuario">
+<xs:sequence>
+<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarUsuarioResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="consultarPorcentaje">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="consultarPorcentajeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="definirPorcentaje">
+<xs:sequence>
+<xs:element name="porcentaje" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="definirPorcentajeResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="actualizarUsuarios">
+<xs:sequence>
+<xs:element name="cod_rol" type="xs:string" minOccurs="0" />
+<xs:element name="telefono" type="xs:string" minOccurs="0" />
+<xs:element name="direccion" type="xs:string" minOccurs="0" />
+<xs:element name="cod_usuario" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarUsuariosResponse">
 <xs:sequence />
 </xs:complexType>
 
