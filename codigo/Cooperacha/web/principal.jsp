@@ -45,6 +45,7 @@
                     <li><a href="iniciativasPublicadas.jsp">Iniciativas publicadas en plataforma</a></li>
                     <li><a href="denunciaIniciativa.jsp">Denunciar iniciativa</a></li>
                      <li><a href="eliminarBorrador.jsp">eliminar borrador</a></li>
+                     <li><a href="eliminarIniciativa.jsp">eliminar iniciativa publicada</a></li>
                      <li><a href="publicarBorradorI.jsp">publicar borrador</a></li>
                      <li><a href="modificarIniciativaI.jsp">Modificar Iniciativa</a></li>
                 </ul>

@@ -88,6 +88,10 @@
 
 <xs:element name="denunciaIniciativaResponse" type="tns:denunciaIniciativaResponse" />
 
+<xs:element name="eliminarIniciativa" type="tns:eliminarIniciativa" />
+
+<xs:element name="eliminarIniciativaResponse" type="tns:eliminarIniciativaResponse" />
+
 <xs:element name="eliminarIniciativaborrador" type="tns:eliminarIniciativaborrador" />
 
 <xs:element name="eliminarIniciativaborradorResponse" type="tns:eliminarIniciativaborradorResponse" />
@@ -594,6 +598,16 @@
 </xs:complexType>
 
 <xs:complexType name="definirPorcentajeResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="eliminarIniciativa">
+<xs:sequence>
+<xs:element name="cod_iniciativa" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarIniciativaResponse">
 <xs:sequence />
 </xs:complexType>
 

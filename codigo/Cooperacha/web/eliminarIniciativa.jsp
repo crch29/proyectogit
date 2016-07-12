@@ -1,6 +1,6 @@
 <%-- 
-    Document   : iniciativasPublicadas
-    Created on : 26/06/2016, 03:09:45 AM
+    Document   : eliminarIniciativa
+    Created on : 12/07/2016, 07:29:36 AM
     Author     : carlosrene
 --%>
 
@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         
-        <title>BUSCAR INICIATIVA</title>
+        <title>ElIMINAR INICIATIVA</title>
     </head>
        <body background="startup-1.jpg">
                 
@@ -45,7 +45,7 @@
               
               <table class="table table-striped table-bordered table-condensed">
                   		<tr>
-                                    <td>nombre</td><td>meta</td><td>monto alcanzado</td><td>Porcentaje</td><td>mostrar</td>
+                                    <td>nombre</td><td>meta</td><td>monto alcanzado</td><td>Porcentaje</td><td>accion</td>
                   		</tr>
               
               <%
@@ -73,14 +73,13 @@
                             
               %><tr>
                  
-                  <td><%=nombre%></td><td><%=meta%></td><td><%=monto%></td><td><%=porcentaje%></td><td><button class="form-control btn btn-primary" type="submit" value="<%=cod_iniciativa%>" name="<%=cod_iniciativa%>">ver</button></td>
+                  <td><%=nombre%></td><td><%=meta%></td><td><%=monto%></td><td><%=porcentaje%></td><td><button class="form-control btn btn-primary" type="submit" value="<%=cod_iniciativa%>" name="<%=cod_iniciativa%>">Eliminar</button></td>
                </tr><%
                         String clave=request.getParameter(String.valueOf(cod_iniciativa));
                         if(clave!=null){
-                            s.setAttribute("codigo",clave);
-                            String uno=(String)s.getAttribute("codigo");
                             
-                            %><jsp:forward page="mostrarIniciativa.jsp"></jsp:forward><%
+                            port.eliminarIniciativa(clave);
+                            
                         }
                         
                         }

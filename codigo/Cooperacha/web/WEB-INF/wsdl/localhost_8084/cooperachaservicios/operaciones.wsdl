@@ -226,6 +226,12 @@
 <message name="denunciaIniciativaResponse">
 <part name="parameters" element="tns:denunciaIniciativaResponse" />
 </message>
+<message name="eliminarIniciativa">
+<part name="parameters" element="tns:eliminarIniciativa" />
+</message>
+<message name="eliminarIniciativaResponse">
+<part name="parameters" element="tns:eliminarIniciativaResponse" />
+</message>
 <portType name="operaciones">
 <operation name="insertarDonacion">
 <input wsam:Action="http://cooperacha/operaciones/insertarDonacionRequest" message="tns:insertarDonacion" />
@@ -374,6 +380,10 @@
 <operation name="denunciaIniciativa">
 <input wsam:Action="http://cooperacha/operaciones/denunciaIniciativaRequest" message="tns:denunciaIniciativa" />
 <output wsam:Action="http://cooperacha/operaciones/denunciaIniciativaResponse" message="tns:denunciaIniciativaResponse" />
+</operation>
+<operation name="eliminarIniciativa">
+<input wsam:Action="http://cooperacha/operaciones/eliminarIniciativaRequest" message="tns:eliminarIniciativa" />
+<output wsam:Action="http://cooperacha/operaciones/eliminarIniciativaResponse" message="tns:eliminarIniciativaResponse" />
 </operation>
 </portType>
 <binding name="operacionesPortBinding" type="tns:operaciones">
@@ -703,6 +713,15 @@
 </output>
 </operation>
 <operation name="denunciaIniciativa">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="eliminarIniciativa">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
