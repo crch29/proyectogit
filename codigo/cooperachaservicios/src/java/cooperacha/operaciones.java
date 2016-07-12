@@ -279,6 +279,7 @@ public class operaciones {
               usuario.setContraseña(rs.getString("contraseña"));
               usuario.setDireccion(rs.getString("direccion"));
               usuario.setTelefono(rs.getInt("telefono"));
+              usuario.setCodrol(rs.getInt("cod_rol"));
               listau.add(usuario);
             }
             }catch(Exception e){
@@ -588,7 +589,7 @@ public class operaciones {
      */
     @WebMethod(operationName = "cargarCategoria")
     public void cargarCategoria(@WebParam(name = "archivo") String archivo) {
-         String instruccion = String.format("copy categorias from 'C:\\subidos\\%s' USING delimiters ',' ;",archivo);
+         String instruccion = String.format("COPY categorias FROM 'C:\\subidos\\%s' USING delimiters ',';",archivo);
         try{
             conexiones con= new conexiones();
             con.agregar(instruccion);
@@ -634,6 +635,111 @@ public class operaciones {
     @WebMethod(operationName = "denunciaComentario")
     public void denunciaComentario(@WebParam(name = "cod_iniciativa") String cod_iniciativa, @WebParam(name = "cod_comentario") String cod_comentario, @WebParam(name = "cod_usuario") String cod_usuario) {
          String instruccion = String.format("insert into Denuncia(descripcion,cod_iniciativa,cod_usuario,cod_comentario) values('sin descripcion',%s,%s,%s);",cod_iniciativa,cod_usuario,cod_comentario);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "consultarUsuarios")
+    public List<Usuario> consultarUsuarios() {
+        List<Usuario> listau= new ArrayList<Usuario>();
+            try{
+                conexiones con=new conexiones();
+                con.conectar();
+                rs=con.consultar("select * from Usuario;");
+                 while(rs.next()){
+              Usuario usuario=new Usuario();
+              usuario.setCodusuario(rs.getInt("cod_usuario"));
+              usuario.setNickname(rs.getString("nickname"));
+              usuario.setNombre(rs.getString("nombre"));
+                listau.add(usuario);
+            }
+            }catch(Exception e){
+                 
+            }
+            
+            return listau;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "eliminarUsuario")
+    public void eliminarUsuario(@WebParam(name = "cod_usuario") String cod_usuario) {
+       String instruccion = String.format("delete from Usuario where cod_usuario=%s;",cod_usuario);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "actualizarUsuarios")
+    public void actualizarUsuarios(@WebParam(name = "cod_rol") String cod_rol, @WebParam(name = "telefono") String telefono, @WebParam(name = "direccion") String direccion, @WebParam(name = "cod_usuario") String cod_usuario) {
+       String instruccion = String.format("update Usuario set cod_rol=%s, direccion='%s', telefono=%s where cod_usuario=%s;",cod_rol,direccion,telefono,cod_usuario);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "definirPorcentaje")
+    public void definirPorcentaje(@WebParam(name = "porcentaje") String porcentaje) {
+         String instruccion = String.format("update Cooperacha set porcentaje=%s where cod=1;",porcentaje);
+        try{
+            conexiones con= new conexiones();
+            con.agregar(instruccion);
+            
+        }catch(Exception e){
+        
+        }
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "consultarPorcentaje")
+    public String consultarPorcentaje() {
+       String porcentaje=null;
+            try{
+                conexiones con=new conexiones();
+                con.conectar();
+                rs=con.consultar(String.format("select porcentaje from Cooperacha where cod=1;"));
+                 while(rs.next()){
+              porcentaje=String.valueOf(rs.getDouble("porcentaje"));
+              
+            }
+            }catch(Exception e){
+                 
+            }
+            
+            return porcentaje;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "denunciaIniciativa")
+    public void denunciaIniciativa(@WebParam(name = "cod_iniciativa") String cod_iniciativa, @WebParam(name = "cod_usuario") String cod_usuario) {
+       String instruccion = String.format("insert into Denuncia(descripcion,cod_iniciativa,cod_usuario) values('sin descripcion',%s,%s);",cod_iniciativa,cod_usuario);
         try{
             conexiones con= new conexiones();
             con.agregar(instruccion);
